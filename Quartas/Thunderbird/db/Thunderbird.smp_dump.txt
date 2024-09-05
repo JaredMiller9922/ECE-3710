@@ -1,0 +1,11 @@
+
+State Machine - |Thunderbird|state
+Name state.HAZ state.R3 state.R2 state.R1 state.L3 state.L2 state.L1 state.START 
+state.START 0 0 0 0 0 0 0 0 
+state.L1 0 0 0 0 0 0 1 1 
+state.L2 0 0 0 0 0 1 0 1 
+state.L3 0 0 0 0 1 0 0 1 
+state.R1 0 0 0 1 0 0 0 1 
+state.R2 0 0 1 0 0 0 0 1 
+state.R3 0 1 0 0 0 0 0 1 
+state.HAZ 1 0 0 0 0 0 0 1 

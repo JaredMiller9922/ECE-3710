@@ -1,0 +1,212 @@
+# Reading pref.tcl
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 win64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do Thunderbird_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Questa Intel Starter FPGA Edition-64 vmap 2023.3 Lib Mapping Utility 2023.07 Jul 17 2023
+# vmap work rtl_work 
+# Copying c:/intelfpga_lite/23.1std/questa_fse/win64/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/jared/Desktop/Fall\ 2024/ECE-3710/Quartas/Thunderbird {C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/Thunderbird.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 18:04:11 on Sep 04,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird" C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/Thunderbird.v 
+# -- Compiling module Thunderbird
+# 
+# Top level modules:
+# 	Thunderbird
+# End time: 18:04:11 on Sep 04,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/jared/Desktop/Fall\ 2024/ECE-3710/Quartas/Thunderbird {C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/counter.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 18:04:12 on Sep 04,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird" C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/counter.v 
+# -- Compiling module counter
+# 
+# Top level modules:
+# 	counter
+# End time: 18:04:12 on Sep 04,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vlog -reportprogress 300 -work work {C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/tb_Thunderbird.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 18:04:29 on Sep 04,2024
+# vlog -reportprogress 300 -work work C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/tb_Thunderbird.v 
+# -- Compiling module tb_Thunderbird
+# 
+# Top level modules:
+# 	tb_Thunderbird
+# End time: 18:04:29 on Sep 04,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -gui -l msim_transcript rtl_work.tb_Thunderbird
+# vsim -gui -l msim_transcript rtl_work.tb_Thunderbird 
+# Start time: 18:04:38 on Sep 04,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading work.tb_Thunderbird(fast)
+vsim -gui -l msim_transcript rtl_work.tb_Thunderbird -voptargs=+acc
+# End time: 18:05:04 on Sep 04,2024, Elapsed time: 0:00:26
+# Errors: 0, Warnings: 0
+# vsim -gui -l msim_transcript rtl_work.tb_Thunderbird -voptargs="+acc" 
+# Start time: 18:05:04 on Sep 04,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "Thunderbird(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.tb_Thunderbird(fast)
+# Loading work.Thunderbird(fast)
+# Loading work.counter(fast)
+add wave -position insertpoint  \
+sim:/tb_Thunderbird/left \
+sim:/tb_Thunderbird/right \
+sim:/tb_Thunderbird/haz \
+sim:/tb_Thunderbird/clk \
+sim:/tb_Thunderbird/reset \
+sim:/tb_Thunderbird/L \
+sim:/tb_Thunderbird/R \
+sim:/tb_Thunderbird/count
+run -all
+view -new wave
+# .main_pane.wave1.interior.cs.body.pw.wf
+add wave -position insertpoint  \
+sim:/tb_Thunderbird/uut/state \
+sim:/tb_Thunderbird/uut/next_state
+add wave -position insertpoint  \
+sim:/tb_Thunderbird/uut/state \
+sim:/tb_Thunderbird/uut/next_state
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.tb_Thunderbird(fast)
+# Loading work.Thunderbird(fast)
+# Loading work.counter(fast)
+vsim -gui -l msim_transcript -voptargs=+acc rtl_work.tb_Thunderbird
+# End time: 18:06:11 on Sep 04,2024, Elapsed time: 0:01:07
+# Errors: 0, Warnings: 1
+# vsim -gui -l msim_transcript -voptargs="+acc" rtl_work.tb_Thunderbird 
+# Start time: 18:06:11 on Sep 04,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading work.tb_Thunderbird(fast)
+# Loading work.Thunderbird(fast)
+# Loading work.counter(fast)
+add wave -position insertpoint  \
+sim:/tb_Thunderbird/left \
+sim:/tb_Thunderbird/right \
+sim:/tb_Thunderbird/haz \
+sim:/tb_Thunderbird/clk \
+sim:/tb_Thunderbird/reset \
+sim:/tb_Thunderbird/L \
+sim:/tb_Thunderbird/R \
+sim:/tb_Thunderbird/count
+add wave -position insertpoint  \
+sim:/tb_Thunderbird/uut/state \
+sim:/tb_Thunderbird/uut/next_state
+run -all
+vlog -reportprogress 300 -work work {C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/tb_Thunderbird.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 18:11:09 on Sep 04,2024
+# vlog -reportprogress 300 -work work C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/tb_Thunderbird.v 
+# -- Compiling module tb_Thunderbird
+# 
+# Top level modules:
+# 	tb_Thunderbird
+# End time: 18:11:10 on Sep 04,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vsim -gui -l msim_transcript -voptargs=+acc work.tb_Thunderbird
+# End time: 18:11:20 on Sep 04,2024, Elapsed time: 0:05:09
+# Errors: 0, Warnings: 0
+# vsim -gui -l msim_transcript -voptargs="+acc" work.tb_Thunderbird 
+# Start time: 18:11:20 on Sep 04,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "Thunderbird(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.tb_Thunderbird(fast)
+# Loading work.Thunderbird(fast)
+# Loading work.counter(fast)
+add wave -position insertpoint  \
+sim:/tb_Thunderbird/uut/START \
+sim:/tb_Thunderbird/uut/L1 \
+sim:/tb_Thunderbird/uut/L2 \
+sim:/tb_Thunderbird/uut/L3 \
+sim:/tb_Thunderbird/uut/R1 \
+sim:/tb_Thunderbird/uut/R2 \
+sim:/tb_Thunderbird/uut/R3 \
+sim:/tb_Thunderbird/uut/HAZ \
+sim:/tb_Thunderbird/uut/left \
+sim:/tb_Thunderbird/uut/right \
+sim:/tb_Thunderbird/uut/haz \
+sim:/tb_Thunderbird/uut/clk \
+sim:/tb_Thunderbird/uut/reset \
+sim:/tb_Thunderbird/uut/L \
+sim:/tb_Thunderbird/uut/R \
+sim:/tb_Thunderbird/uut/count \
+sim:/tb_Thunderbird/uut/state \
+sim:/tb_Thunderbird/uut/next_state
+run -all
+# ** Note: $stop    : C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/tb_Thunderbird.v(66)
+#    Time: 580 ns  Iteration: 0  Instance: /tb_Thunderbird
+# Break in Module tb_Thunderbird at C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/tb_Thunderbird.v line 66
+vlog -reportprogress 300 -work work {C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/tb_Thunderbird.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 18:19:16 on Sep 04,2024
+# vlog -reportprogress 300 -work work C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/tb_Thunderbird.v 
+# -- Compiling module tb_Thunderbird
+# 
+# Top level modules:
+# 	tb_Thunderbird
+# End time: 18:19:16 on Sep 04,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -gui -l msim_transcript -voptargs=+acc rtl_work.tb_Thunderbird
+# End time: 18:19:28 on Sep 04,2024, Elapsed time: 0:08:08
+# Errors: 0, Warnings: 1
+# vsim -gui -l msim_transcript -voptargs="+acc" rtl_work.tb_Thunderbird 
+# Start time: 18:19:28 on Sep 04,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.tb_Thunderbird(fast)
+# Loading work.Thunderbird(fast)
+# Loading work.counter(fast)
+add wave -position insertpoint  \
+sim:/tb_Thunderbird/uut/START \
+sim:/tb_Thunderbird/uut/L1 \
+sim:/tb_Thunderbird/uut/L2 \
+sim:/tb_Thunderbird/uut/L3 \
+sim:/tb_Thunderbird/uut/R1 \
+sim:/tb_Thunderbird/uut/R2 \
+sim:/tb_Thunderbird/uut/R3 \
+sim:/tb_Thunderbird/uut/HAZ \
+sim:/tb_Thunderbird/uut/left \
+sim:/tb_Thunderbird/uut/right \
+sim:/tb_Thunderbird/uut/haz \
+sim:/tb_Thunderbird/uut/clk \
+sim:/tb_Thunderbird/uut/reset \
+sim:/tb_Thunderbird/uut/L \
+sim:/tb_Thunderbird/uut/R \
+sim:/tb_Thunderbird/uut/count \
+sim:/tb_Thunderbird/uut/state \
+sim:/tb_Thunderbird/uut/next_state
+run -all
+# ** Note: $stop    : C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/tb_Thunderbird.v(66)
+#    Time: 580 ns  Iteration: 0  Instance: /tb_Thunderbird
+# Break in Module tb_Thunderbird at C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/tb_Thunderbird.v line 66
+# End time: 18:55:34 on Sep 04,2024, Elapsed time: 0:36:06
+# Errors: 0, Warnings: 1
