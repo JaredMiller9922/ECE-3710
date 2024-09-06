@@ -1,3 +1,6 @@
+// Make sure that the counter is only high for one cycle
+// 2^5 is waaaaaay to small what were you thinking 
+
 module counter #(parameter width=8)
 (
 	input clk,

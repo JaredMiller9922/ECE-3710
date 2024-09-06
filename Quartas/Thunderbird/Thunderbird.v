@@ -63,6 +63,7 @@ module Thunderbird (
 							next_state <= L1;
 						else if (!right) 
 							next_state <= R1;
+						// Need an else to prevent the latches
 					end
 					
 				L1 : 
