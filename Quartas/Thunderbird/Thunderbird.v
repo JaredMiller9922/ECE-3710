@@ -2,10 +2,11 @@ module Thunderbird (
 	// button signals
 	input wire left, right, haz, clk, reset,
 	output reg [2:0] L, R,
-	output wire [7:0] count
+	output reg [6:0] HEX
+	// output wire [31:0] count
 );
 	// Internal Logic
-	//wire [7:0] count;
+	wire [31:0] count;
 	reg [2:0] state, next_state;
 	
 	// Stage Encoding
@@ -18,6 +19,14 @@ module Thunderbird (
 	localparam R3 = 3'b110;
 	localparam HAZ = 3'b111;
 	
+	localparam hazi = ~7'b1110110;
+	localparam r1i = ~7'b0100000;
+	localparam r2i = ~7'b1010000; 
+
+	localparam l1i = ~7'b0001000;
+	localparam l2i = ~7'b0011000;
+	localparam l3i = ~7'b0111000;
+	
 	/* ---------------- Counter Clk Divider ---------------- */
 	counter ctr (
 		.clk(clk),
@@ -29,20 +38,10 @@ module Thunderbird (
 	always @(posedge clk or negedge reset) begin
     if (!reset)
         state <= START;  // Reset state to START
-    else if (count[5])  // Use count[5] as an enable signal
+    else if (count[26])  // Use count[5] as an enable signal
         state <= next_state;  // State transitions
 	end
 
-	/* ---------------- State Register ---------------- */
-/*
-	always @(posedge count[5])
-		begin
-			if(!reset) 
-				state <= START; // Buttons are active low
-			else
-				state <= next_state;
-		end
-*/	
 	/* ---------------- State Register (Testing) ---------------- */
 /*
 	always @(posedge clk)
@@ -63,7 +62,8 @@ module Thunderbird (
 							next_state <= L1;
 						else if (!right) 
 							next_state <= R1;
-						// Need an else to prevent the latches
+						else // This should never happen
+							next_state <= START;
 					end
 					
 				L1 : 
@@ -138,42 +138,50 @@ module Thunderbird (
 			case(state)
 				START : 
 					begin
+						HEX <= ~7'b0000000;
 						L <= 3'b000;
 						R <= 3'b000;
 					end
 					
 				L1 : 
 					begin
+						HEX <= l1i;
 						L <= 3'b001;
 					end
 					
 				L2 : 
 					begin
+						HEX <= l2i;
 						L <= 3'b011;
 					end
 					
 				L3 : 
 					begin
+						HEX <= l3i;
 						L <= 3'b111;
 					end
 					
 				R1 : 
 					begin
+						HEX <= r1i;
 						R <= 3'b001;
 					end
 					
 				R2 : 
 					begin
+						HEX <= r2i;
 						R <= 3'b011;
 					end
 					
 				R3 : 
 					begin
+						HEX <= r2i;
 						R <= 3'b111;
 					end
 					
 				HAZ : 
 					begin
+						HEX <= hazi;
 						L <= 3'b111;
 						R <= 3'b111;
 					end
@@ -181,6 +189,7 @@ module Thunderbird (
 
 				default: // This shouldn't ever happen
 					begin
+						HEX <= ~7'b0000000;
 						L <= 3'b100;
 						R <= 3'b100;
 					end

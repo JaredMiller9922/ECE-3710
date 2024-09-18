@@ -1,7 +1,4 @@
-// Make sure that the counter is only high for one cycle
-// 2^5 is waaaaaay to small what were you thinking 
-
-module counter #(parameter width=8)
+module counter #(parameter width=32)
 (
 	input clk,
 	input reset,
@@ -12,6 +9,8 @@ module counter #(parameter width=8)
 		begin
 			if (!reset)
 				count <= 0;
+			else if 
+				(count[26]) count <= 0;
 			else 
 				count <= count + 1'b1;
 		end

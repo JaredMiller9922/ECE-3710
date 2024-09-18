@@ -28,47 +28,31 @@
 					"strict" : false
 				},
 				{
-					"name" : "count[0]",
+					"name" : "HEX[1]",
 					"strict" : false
 				},
 				{
-					"name" : "count[1]",
+					"name" : "HEX[2]",
 					"strict" : false
 				},
 				{
-					"name" : "count[2]",
+					"name" : "HEX[3]",
 					"strict" : false
 				},
 				{
-					"name" : "count[3]",
+					"name" : "HEX[4]",
 					"strict" : false
 				},
 				{
-					"name" : "count[4]",
+					"name" : "HEX[5]",
 					"strict" : false
 				},
 				{
-					"name" : "count[5]",
-					"strict" : false
-				},
-				{
-					"name" : "count[6]",
-					"strict" : false
-				},
-				{
-					"name" : "count[7]",
+					"name" : "HEX[6]",
 					"strict" : false
 				},
 				{
 					"name" : "haz",
-					"strict" : false
-				},
-				{
-					"name" : "right",
-					"strict" : false
-				},
-				{
-					"name" : "left",
 					"strict" : false
 				},
 				{
@@ -77,6 +61,14 @@
 				},
 				{
 					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "right",
+					"strict" : false
+				},
+				{
+					"name" : "left",
 					"strict" : false
 				}
 			]

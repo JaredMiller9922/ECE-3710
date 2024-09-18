@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Thunderbird
-Wed Sep  4 18:23:24 2024
+Tue Sep 17 18:31:02 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -15,13 +15,15 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |Thunderbird|state
   9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: counter:ctr
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
- 16. Analysis & Synthesis Suppressed Messages
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: counter:ctr
+ 14. Port Connectivity Checks: "counter:ctr"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -48,14 +50,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Sep  4 18:23:24 2024          ;
+; Analysis & Synthesis Status     ; Successful - Tue Sep 17 18:31:02 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; Thunderbird                                    ;
 ; Top-level Entity Name           ; Thunderbird                                    ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 17                                             ;
-; Total pins                      ; 19                                             ;
+; Total registers                 ; 35                                             ;
+; Total pins                      ; 18                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
 ; Total DSP Blocks                ; 0                                              ;
@@ -187,25 +189,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 14        ;
+; Estimate of Logic utilization (ALMs needed) ; 24        ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 24        ;
+; Combinational ALUT usage for logic          ; 46        ;
 ;     -- 7 input functions                    ; 0         ;
-;     -- 6 input functions                    ; 2         ;
+;     -- 6 input functions                    ; 1         ;
 ;     -- 5 input functions                    ; 0         ;
-;     -- 4 input functions                    ; 2         ;
-;     -- <=3 input functions                  ; 20        ;
+;     -- 4 input functions                    ; 3         ;
+;     -- <=3 input functions                  ; 42        ;
 ;                                             ;           ;
-; Dedicated logic registers                   ; 17        ;
+; Dedicated logic registers                   ; 35        ;
 ;                                             ;           ;
-; I/O pins                                    ; 19        ;
+; I/O pins                                    ; 18        ;
 ;                                             ;           ;
 ; Total DSP Blocks                            ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 17        ;
-; Total fan-out                               ; 155       ;
-; Average fan-out                             ; 1.96      ;
+; Maximum fan-out                             ; 35        ;
+; Total fan-out                               ; 250       ;
+; Average fan-out                             ; 2.14      ;
 +---------------------------------------------+-----------+
 
 
@@ -214,8 +216,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name      ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------+-------------+--------------+
-; |Thunderbird               ; 24 (16)             ; 17 (9)                    ; 0                 ; 0          ; 19   ; 0            ; |Thunderbird             ; Thunderbird ; work         ;
-;    |counter:ctr|           ; 8 (8)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |Thunderbird|counter:ctr ; counter     ; work         ;
+; |Thunderbird               ; 46 (18)             ; 35 (8)                    ; 0                 ; 0          ; 18   ; 0            ; |Thunderbird             ; Thunderbird ; work         ;
+;    |counter:ctr|           ; 28 (28)             ; 27 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |Thunderbird|counter:ctr ; counter     ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -242,11 +244,22 @@ Encoding Type:  One-Hot
 +---------------------------------------+--------------------+
 ; Register name                         ; Reason for Removal ;
 +---------------------------------------+--------------------+
+; state~11                              ; Lost fanout        ;
 ; state~12                              ; Lost fanout        ;
 ; state~13                              ; Lost fanout        ;
-; state~14                              ; Lost fanout        ;
-; Total Number of Removed Registers = 3 ;                    ;
+; counter:ctr|count[27..31]             ; Lost fanout        ;
+; Total Number of Removed Registers = 8 ;                    ;
 +---------------------------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                       ;
++-----------------------+--------------------+----------------------------------------------------------------------+
+; Register name         ; Reason for Removal ; Registers Removed due to This Register                               ;
++-----------------------+--------------------+----------------------------------------------------------------------+
+; counter:ctr|count[31] ; Lost Fanouts       ; counter:ctr|count[30], counter:ctr|count[29], counter:ctr|count[28], ;
+;                       ;                    ; counter:ctr|count[27]                                                ;
++-----------------------+--------------------+----------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -254,24 +267,23 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 17    ;
-; Number of registers using Synchronous Clear  ; 8     ;
+; Total registers                              ; 35    ;
+; Number of registers using Synchronous Clear  ; 27    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 9     ;
+; Number of registers using Asynchronous Clear ; 8     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 8     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Thunderbird|next_state    ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |Thunderbird|state         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Thunderbird|counter:ctr|count[19] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
 
 
 +----------------------------------------------------------+
@@ -279,9 +291,19 @@ Encoding Type:  One-Hot
 +----------------+-------+---------------------------------+
 ; Parameter Name ; Value ; Type                            ;
 +----------------+-------+---------------------------------+
-; width          ; 8     ; Signed Integer                  ;
+; width          ; 32    ; Signed Integer                  ;
 +----------------+-------+---------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "counter:ctr"                                                                                 ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; count[31..27] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; count[25..0]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -289,23 +311,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 17                          ;
-;     CLR               ; 1                           ;
+; arriav_ff             ; 35                          ;
 ;     ENA CLR           ; 8                           ;
-;     SCLR              ; 8                           ;
-; arriav_lcell_comb     ; 26                          ;
-;     arith             ; 8                           ;
-;         1 data inputs ; 8                           ;
-;     normal            ; 18                          ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 8                           ;
-;         3 data inputs ; 4                           ;
-;         4 data inputs ; 2                           ;
-;         6 data inputs ; 2                           ;
-; boundary_port         ; 19                          ;
+;     SCLR              ; 27                          ;
+; arriav_lcell_comb     ; 54                          ;
+;     arith             ; 27                          ;
+;         1 data inputs ; 27                          ;
+;     normal            ; 27                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 3                           ;
+;         6 data inputs ; 1                           ;
+; boundary_port         ; 18                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.43                        ;
+; Max LUT depth         ; 3.60                        ;
+; Average LUT depth     ; 2.31                        ;
 +-----------------------+-----------------------------+
 
 
@@ -324,7 +346,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Wed Sep  4 18:23:18 2024
+    Info: Processing started: Tue Sep 17 18:30:54 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Thunderbird -c Thunderbird
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -335,21 +357,23 @@ Info (12021): Found 1 design units, including 1 entities, in source file counter
 Info (12021): Found 1 design units, including 1 entities, in source file tb_thunderbird.v
     Info (12023): Found entity 1: tb_Thunderbird File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/tb_Thunderbird.v Line: 1
 Info (12127): Elaborating entity "Thunderbird" for the top level hierarchy
-Info (12128): Elaborating entity "counter" for hierarchy "counter:ctr" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/Thunderbird.v Line: 28
+Info (12128): Elaborating entity "counter" for hierarchy "counter:ctr" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/Thunderbird.v Line: 35
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX[0]" is stuck at VCC File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/Thunderbird.v Line: 7
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (17049): 8 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/Thunderbird/output_files/Thunderbird.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 45 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 64 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 26 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4865 megabytes
-    Info: Processing ended: Wed Sep  4 18:23:24 2024
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:10
+    Info (21059): Implemented 13 output pins
+    Info (21061): Implemented 46 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4862 megabytes
+    Info: Processing ended: Tue Sep 17 18:31:02 2024
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:11
 
 
 +------------------------------------------+
