@@ -1,0 +1,117 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "memwrite",
+					"strict" : false
+				},
+				{
+					"name" : "adr[0]",
+					"strict" : false
+				},
+				{
+					"name" : "adr[1]",
+					"strict" : false
+				},
+				{
+					"name" : "adr[2]",
+					"strict" : false
+				},
+				{
+					"name" : "adr[3]",
+					"strict" : false
+				},
+				{
+					"name" : "adr[4]",
+					"strict" : false
+				},
+				{
+					"name" : "adr[5]",
+					"strict" : false
+				},
+				{
+					"name" : "adr[6]",
+					"strict" : false
+				},
+				{
+					"name" : "adr[7]",
+					"strict" : false
+				},
+				{
+					"name" : "writedata[0]",
+					"strict" : false
+				},
+				{
+					"name" : "writedata[1]",
+					"strict" : false
+				},
+				{
+					"name" : "writedata[2]",
+					"strict" : false
+				},
+				{
+					"name" : "writedata[3]",
+					"strict" : false
+				},
+				{
+					"name" : "writedata[4]",
+					"strict" : false
+				},
+				{
+					"name" : "writedata[5]",
+					"strict" : false
+				},
+				{
+					"name" : "writedata[6]",
+					"strict" : false
+				},
+				{
+					"name" : "writedata[7]",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "memdata[5]",
+					"strict" : false
+				},
+				{
+					"name" : "memdata[7]",
+					"strict" : false
+				},
+				{
+					"name" : "memdata[3]",
+					"strict" : false
+				},
+				{
+					"name" : "memdata[4]",
+					"strict" : false
+				},
+				{
+					"name" : "memdata[2]",
+					"strict" : false
+				},
+				{
+					"name" : "memdata[6]",
+					"strict" : false
+				},
+				{
+					"name" : "memdata[0]",
+					"strict" : false
+				},
+				{
+					"name" : "memdata[1]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
