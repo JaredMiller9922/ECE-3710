@@ -26,9 +26,19 @@
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/jared/Desktop/Fall\ 2024/ECE-3710/Quartas/MiniMips {C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 21:07:47 on Sep 18,2024
+# Start time: 21:32:36 on Sep 19,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips" C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v 
 # -- Compiling module MiniMips
+# 
+# Top level modules:
+# 	MiniMips
+# End time: 21:32:36 on Sep 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/jared/Desktop/Fall\ 2024/ECE-3710/Quartas/MiniMips {C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 21:32:36 on Sep 19,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips" C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v 
+# -- Compiling module mipscpu
 # -- Compiling module controller
 # -- Compiling module alucontrol
 # -- Compiling module datapath
@@ -43,27 +53,47 @@
 # -- Compiling module mux4
 # 
 # Top level modules:
-# 	MiniMips
+# 	mipscpu
 # 	flop
 # 	flopen
-# End time: 21:07:47 on Sep 18,2024, Elapsed time: 0:00:00
+# End time: 21:32:36 on Sep 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/jared/Desktop/Fall\ 2024/ECE-3710/Quartas/MiniMips {C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/exmem.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 21:32:37 on Sep 19,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips" C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/exmem.v 
+# -- Compiling module exmem
+# 
+# Top level modules:
+# 	exmem
+# End time: 21:32:37 on Sep 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 vlog -reportprogress 300 -work work {C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/exmem.v}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 21:07:59 on Sep 18,2024
+# Start time: 21:32:48 on Sep 19,2024
 # vlog -reportprogress 300 -work work C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/exmem.v 
 # -- Compiling module exmem
 # 
 # Top level modules:
 # 	exmem
-# End time: 21:07:59 on Sep 18,2024, Elapsed time: 0:00:00
+# End time: 21:32:48 on Sep 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vlog -reportprogress 300 -work work {C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 21:07:59 on Sep 18,2024
+# Start time: 21:32:48 on Sep 19,2024
 # vlog -reportprogress 300 -work work C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v 
 # -- Compiling module MiniMips
+# 
+# Top level modules:
+# 	MiniMips
+# End time: 21:32:48 on Sep 19,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v}
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 21:32:48 on Sep 19,2024
+# vlog -reportprogress 300 -work work C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v 
+# -- Compiling module mipscpu
 # -- Compiling module controller
 # -- Compiling module alucontrol
 # -- Compiling module datapath
@@ -78,138 +108,56 @@ vlog -reportprogress 300 -work work {C:/Users/jared/Desktop/Fall 2024/ECE-3710/Q
 # -- Compiling module mux4
 # 
 # Top level modules:
-# 	MiniMips
+# 	mipscpu
 # 	flop
 # 	flopen
-# End time: 21:08:00 on Sep 18,2024, Elapsed time: 0:00:01
+# End time: 21:32:48 on Sep 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vlog -reportprogress 300 -work work {C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v}
 # Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 21:08:00 on Sep 18,2024
+# Start time: 21:32:48 on Sep 19,2024
 # vlog -reportprogress 300 -work work C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v 
 # -- Compiling module tb_MiniMips
 # 
 # Top level modules:
 # 	tb_MiniMips
-# End time: 21:08:00 on Sep 18,2024, Elapsed time: 0:00:00
+# End time: 21:32:48 on Sep 19,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -gui -l msim_transcript rtl_work.tb_MiniMips
-# vsim -gui -l msim_transcript rtl_work.tb_MiniMips 
-# Start time: 21:08:08 on Sep 18,2024
+vsim -gui -l msim_transcript work.tb_MiniMips -voptargs=+acc
+# vsim -gui -l msim_transcript work.tb_MiniMips -voptargs="+acc" 
+# Start time: 21:32:59 on Sep 19,2024
 # ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "controller(fast)".
+# ** Warning: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v(9): (vopt-2685) [TFMPC] - Too few port connections for 'uut'.  Expected 4, found 2.
+# ** Warning: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v(9): (vopt-2718) [TFMPC] - Missing connection for port 'leds'.
+# ** Warning: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v(9): (vopt-2718) [TFMPC] - Missing connection for port 'switches'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=4.
 # Loading work.tb_MiniMips(fast)
+# Loading work.MiniMips(fast)
+# Loading work.mipscpu(fast)
+# Loading work.controller(fast)
+# Loading work.alucontrol(fast)
+# Loading work.datapath(fast)
+# Loading work.mux2(fast)
+# Loading work.flopenr(fast)
+# Loading work.flopr(fast)
+# Loading work.mux2(fast__1)
+# Loading work.mux4(fast)
+# Loading work.regfile(fast)
+# Loading work.alu(fast)
+# Loading work.zerodetect(fast)
+# Loading work.exmem(fast)
+add wave -position insertpoint  \
+sim:/tb_MiniMips/uut/mem/ram
 run -all
 # Loading register file
 # done with RF load
 # Loading memory
 # done loading
-# Current State: UNKNOWN
-# Current State: FETCH1
-# Current State: FETCH1
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: RTYPEEX
-# Current State: RTYPEWR
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: RTYPEEX
-# Current State: RTYPEWR
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: RTYPEEX
-# Current State: RTYPEWR
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: RTYPEEX
-# Current State: RTYPEWR
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: RTYPEEX
-# Current State: RTYPEWR
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: RTYPEEX
-# Current State: RTYPEWR
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: RTYPEEX
-# Current State: RTYPEWR
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: RTYPEEX
-# Current State: RTYPEWR
-# Current State: FETCH1
-# Current State: FETCH2
-# Current State: FETCH3
-# Current State: FETCH4
-# Current State: DECODE
-# Current State: RTYPEEX
-# Current State: RTYPEWR
-# Current State: FETCH1
-# ERROR: mem.ram[255] should be 0x0D but was 0x0
-# ** Note: $finish    : C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v(49)
-#    Time: 1020 ns  Iteration: 0  Instance: /tb_MiniMips
+# ** Note: $finish    : C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v(36)
+#    Time: 2000020 ns  Iteration: 0  Instance: /tb_MiniMips
 # 1
-# Break at C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v line 49
-# A time value could not be extracted from the current line
-# End time: 21:11:15 on Sep 18,2024, Elapsed time: 0:03:07
-# Errors: 0, Warnings: 0
+# Break in Module tb_MiniMips at C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v line 36
+# End time: 21:35:38 on Sep 19,2024, Elapsed time: 0:02:39
+# Errors: 0, Warnings: 4

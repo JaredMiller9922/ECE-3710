@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Wed Sep 18 21:05:55 2024
+Analysis & Synthesis Status : Successful - Thu Sep 19 21:31:11 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : MiniMips
 Top-level Entity Name : MiniMips
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 124
-Total pins : 27
+Total registers : 132
+Total pins : 18
 Total virtual pins : 0
-Total block memory bits : 128
+Total block memory bits : 2,176
 Total DSP Blocks : 0
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

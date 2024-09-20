@@ -4,75 +4,35 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "memwrite",
+					"name" : "leds[0]",
 					"strict" : false
 				},
 				{
-					"name" : "adr[0]",
+					"name" : "leds[1]",
 					"strict" : false
 				},
 				{
-					"name" : "adr[1]",
+					"name" : "leds[2]",
 					"strict" : false
 				},
 				{
-					"name" : "adr[2]",
+					"name" : "leds[3]",
 					"strict" : false
 				},
 				{
-					"name" : "adr[3]",
+					"name" : "leds[4]",
 					"strict" : false
 				},
 				{
-					"name" : "adr[4]",
+					"name" : "leds[5]",
 					"strict" : false
 				},
 				{
-					"name" : "adr[5]",
+					"name" : "leds[6]",
 					"strict" : false
 				},
 				{
-					"name" : "adr[6]",
-					"strict" : false
-				},
-				{
-					"name" : "adr[7]",
-					"strict" : false
-				},
-				{
-					"name" : "writedata[0]",
-					"strict" : false
-				},
-				{
-					"name" : "writedata[1]",
-					"strict" : false
-				},
-				{
-					"name" : "writedata[2]",
-					"strict" : false
-				},
-				{
-					"name" : "writedata[3]",
-					"strict" : false
-				},
-				{
-					"name" : "writedata[4]",
-					"strict" : false
-				},
-				{
-					"name" : "writedata[5]",
-					"strict" : false
-				},
-				{
-					"name" : "writedata[6]",
-					"strict" : false
-				},
-				{
-					"name" : "writedata[7]",
-					"strict" : false
-				},
-				{
-					"name" : "reset",
+					"name" : "leds[7]",
 					"strict" : false
 				},
 				{
@@ -80,35 +40,39 @@
 					"strict" : false
 				},
 				{
-					"name" : "memdata[5]",
+					"name" : "reset",
 					"strict" : false
 				},
 				{
-					"name" : "memdata[7]",
+					"name" : "switches[0]",
 					"strict" : false
 				},
 				{
-					"name" : "memdata[3]",
+					"name" : "switches[1]",
 					"strict" : false
 				},
 				{
-					"name" : "memdata[4]",
+					"name" : "switches[2]",
 					"strict" : false
 				},
 				{
-					"name" : "memdata[2]",
+					"name" : "switches[5]",
 					"strict" : false
 				},
 				{
-					"name" : "memdata[6]",
+					"name" : "switches[7]",
 					"strict" : false
 				},
 				{
-					"name" : "memdata[0]",
+					"name" : "switches[3]",
 					"strict" : false
 				},
 				{
-					"name" : "memdata[1]",
+					"name" : "switches[4]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[6]",
 					"strict" : false
 				}
 			]

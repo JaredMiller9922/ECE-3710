@@ -1,16 +1,16 @@
-Fitter Status : Successful - Wed Sep 18 21:06:56 2024
+Fitter Status : Successful - Thu Sep 19 21:32:10 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : MiniMips
 Top-level Entity Name : MiniMips
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 77 / 32,070 ( < 1 % )
-Total registers : 124
-Total pins : 27 / 457 ( 6 % )
+Logic utilization (in ALMs) : 87 / 32,070 ( < 1 % )
+Total registers : 132
+Total pins : 18 / 457 ( 4 % )
 Total virtual pins : 0
-Total block memory bits : 128 / 4,065,280 ( < 1 % )
-Total RAM Blocks : 2 / 397 ( < 1 % )
+Total block memory bits : 2,176 / 4,065,280 ( < 1 % )
+Total RAM Blocks : 3 / 397 ( < 1 % )
 Total DSP Blocks : 0 / 87 ( 0 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

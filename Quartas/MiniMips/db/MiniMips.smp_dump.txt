@@ -1,5 +1,5 @@
 
-State Machine - |MiniMips|controller:cont|state
+State Machine - |MiniMips|mipscpu:cpu|controller:cont|state
 Name state.ADDIWR state.ADDIEX state.JEX state.BEQEX state.RTYPEWR state.RTYPEEX state.SBWR state.LBWR state.LBRD state.MEMADR state.DECODE state.FETCH4 state.FETCH3 state.FETCH2 state.FETCH1 
 state.FETCH1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 state.FETCH2 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 

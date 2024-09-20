@@ -1,4 +1,25 @@
 |MiniMips
+clk => clk.IN1
+reset => reset.IN1
+switches[0] => q.DATAB
+switches[1] => q.DATAB
+switches[2] => q.DATAB
+switches[3] => q.DATAB
+switches[4] => q.DATAB
+switches[5] => q.DATAB
+switches[6] => q.DATAB
+switches[7] => q.DATAB
+leds[0] << leds[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] << leds[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] << leds[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] << leds[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] << leds[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] << leds[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] << leds[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[7] << leds[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|MiniMips|mipscpu:cpu
 clk => clk.IN2
 reset => reset.IN2
 memdata[0] => memdata[0].IN1
@@ -9,26 +30,26 @@ memdata[4] => memdata[4].IN1
 memdata[5] => memdata[5].IN1
 memdata[6] => memdata[6].IN1
 memdata[7] => memdata[7].IN1
-memwrite << controller:cont.port4
-adr[0] << datapath:dp.port15
-adr[1] << datapath:dp.port15
-adr[2] << datapath:dp.port15
-adr[3] << datapath:dp.port15
-adr[4] << datapath:dp.port15
-adr[5] << datapath:dp.port15
-adr[6] << datapath:dp.port15
-adr[7] << datapath:dp.port15
-writedata[0] << datapath:dp.port16
-writedata[1] << datapath:dp.port16
-writedata[2] << datapath:dp.port16
-writedata[3] << datapath:dp.port16
-writedata[4] << datapath:dp.port16
-writedata[5] << datapath:dp.port16
-writedata[6] << datapath:dp.port16
-writedata[7] << datapath:dp.port16
+memwrite <= controller:cont.port4
+adr[0] <= datapath:dp.port15
+adr[1] <= datapath:dp.port15
+adr[2] <= datapath:dp.port15
+adr[3] <= datapath:dp.port15
+adr[4] <= datapath:dp.port15
+adr[5] <= datapath:dp.port15
+adr[6] <= datapath:dp.port15
+adr[7] <= datapath:dp.port15
+writedata[0] <= datapath:dp.port16
+writedata[1] <= datapath:dp.port16
+writedata[2] <= datapath:dp.port16
+writedata[3] <= datapath:dp.port16
+writedata[4] <= datapath:dp.port16
+writedata[5] <= datapath:dp.port16
+writedata[6] <= datapath:dp.port16
+writedata[7] <= datapath:dp.port16
 
 
-|MiniMips|controller:cont
+|MiniMips|mipscpu:cpu|controller:cont
 clk => state~1.DATAIN
 reset => state.OUTPUTSELECT
 reset => state.OUTPUTSELECT
@@ -83,7 +104,7 @@ irwrite[2] <= irwrite[2].DB_MAX_OUTPUT_PORT_TYPE
 irwrite[3] <= irwrite[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|alucontrol:ac
+|MiniMips|mipscpu:cpu|alucontrol:ac
 aluop[0] => Equal0.IN3
 aluop[0] => Equal1.IN3
 aluop[1] => Equal0.IN2
@@ -99,7 +120,7 @@ alucont[1] <= alucont.DB_MAX_OUTPUT_PORT_TYPE
 alucont[2] <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp
+|MiniMips|mipscpu:cpu|datapath:dp
 clk => clk.IN10
 reset => reset.IN9
 memdata[0] => memdata[0].IN5
@@ -178,7 +199,7 @@ writedata[6] <= writedata[6].DB_MAX_OUTPUT_PORT_TYPE
 writedata[7] <= writedata[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|mux2:regmux
+|MiniMips|mipscpu:cpu|datapath:dp|mux2:regmux
 d0[0] => y.DATAA
 d0[1] => y.DATAA
 d0[2] => y.DATAA
@@ -193,7 +214,7 @@ y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
 y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|flopenr:ir0
+|MiniMips|mipscpu:cpu|datapath:dp|flopenr:ir0
 clk => q[0]~reg0.CLK
 clk => q[1]~reg0.CLK
 clk => q[2]~reg0.CLK
@@ -236,7 +257,7 @@ q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|flopenr:ir1
+|MiniMips|mipscpu:cpu|datapath:dp|flopenr:ir1
 clk => q[0]~reg0.CLK
 clk => q[1]~reg0.CLK
 clk => q[2]~reg0.CLK
@@ -279,7 +300,7 @@ q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|flopenr:ir2
+|MiniMips|mipscpu:cpu|datapath:dp|flopenr:ir2
 clk => q[0]~reg0.CLK
 clk => q[1]~reg0.CLK
 clk => q[2]~reg0.CLK
@@ -322,7 +343,7 @@ q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|flopenr:ir3
+|MiniMips|mipscpu:cpu|datapath:dp|flopenr:ir3
 clk => q[0]~reg0.CLK
 clk => q[1]~reg0.CLK
 clk => q[2]~reg0.CLK
@@ -365,7 +386,7 @@ q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|flopenr:pcreg
+|MiniMips|mipscpu:cpu|datapath:dp|flopenr:pcreg
 clk => q[0]~reg0.CLK
 clk => q[1]~reg0.CLK
 clk => q[2]~reg0.CLK
@@ -408,7 +429,7 @@ q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|flopr:mdr
+|MiniMips|mipscpu:cpu|datapath:dp|flopr:mdr
 clk => q[0]~reg0.CLK
 clk => q[1]~reg0.CLK
 clk => q[2]~reg0.CLK
@@ -443,7 +464,7 @@ q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|flopr:areg
+|MiniMips|mipscpu:cpu|datapath:dp|flopr:areg
 clk => q[0]~reg0.CLK
 clk => q[1]~reg0.CLK
 clk => q[2]~reg0.CLK
@@ -478,7 +499,7 @@ q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|flopr:wrd
+|MiniMips|mipscpu:cpu|datapath:dp|flopr:wrd
 clk => q[0]~reg0.CLK
 clk => q[1]~reg0.CLK
 clk => q[2]~reg0.CLK
@@ -513,7 +534,7 @@ q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|flopr:res
+|MiniMips|mipscpu:cpu|datapath:dp|flopr:res
 clk => q[0]~reg0.CLK
 clk => q[1]~reg0.CLK
 clk => q[2]~reg0.CLK
@@ -548,42 +569,7 @@ q[6] <= q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[7] <= q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|mux2:adrmux
-d0[0] => y.DATAA
-d0[1] => y.DATAA
-d0[2] => y.DATAA
-d0[3] => y.DATAA
-d0[4] => y.DATAA
-d0[5] => y.DATAA
-d0[6] => y.DATAA
-d0[7] => y.DATAA
-d1[0] => y.DATAB
-d1[1] => y.DATAB
-d1[2] => y.DATAB
-d1[3] => y.DATAB
-d1[4] => y.DATAB
-d1[5] => y.DATAB
-d1[6] => y.DATAB
-d1[7] => y.DATAB
-s => y.OUTPUTSELECT
-s => y.OUTPUTSELECT
-s => y.OUTPUTSELECT
-s => y.OUTPUTSELECT
-s => y.OUTPUTSELECT
-s => y.OUTPUTSELECT
-s => y.OUTPUTSELECT
-s => y.OUTPUTSELECT
-y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[3] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[4] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[5] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|MiniMips|datapath:dp|mux2:src1mux
+|MiniMips|mipscpu:cpu|datapath:dp|mux2:adrmux
 d0[0] => y.DATAA
 d0[1] => y.DATAA
 d0[2] => y.DATAA
@@ -618,7 +604,42 @@ y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
 y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|mux4:src2mux
+|MiniMips|mipscpu:cpu|datapath:dp|mux2:src1mux
+d0[0] => y.DATAA
+d0[1] => y.DATAA
+d0[2] => y.DATAA
+d0[3] => y.DATAA
+d0[4] => y.DATAA
+d0[5] => y.DATAA
+d0[6] => y.DATAA
+d0[7] => y.DATAA
+d1[0] => y.DATAB
+d1[1] => y.DATAB
+d1[2] => y.DATAB
+d1[3] => y.DATAB
+d1[4] => y.DATAB
+d1[5] => y.DATAB
+d1[6] => y.DATAB
+d1[7] => y.DATAB
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+s => y.OUTPUTSELECT
+y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[4] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[5] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|MiniMips|mipscpu:cpu|datapath:dp|mux4:src2mux
 d0[0] => Mux7.IN0
 d0[1] => Mux6.IN0
 d0[2] => Mux5.IN0
@@ -677,7 +698,7 @@ y[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 y[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|mux4:pcmux
+|MiniMips|mipscpu:cpu|datapath:dp|mux4:pcmux
 d0[0] => Mux7.IN0
 d0[1] => Mux6.IN0
 d0[2] => Mux5.IN0
@@ -736,7 +757,7 @@ y[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 y[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|mux2:wdmux
+|MiniMips|mipscpu:cpu|datapath:dp|mux2:wdmux
 d0[0] => y.DATAA
 d0[1] => y.DATAA
 d0[2] => y.DATAA
@@ -771,7 +792,7 @@ y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
 y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|regfile:rf
+|MiniMips|mipscpu:cpu|datapath:dp|regfile:rf
 clk => RAM.we_a.CLK
 clk => RAM.waddr_a[2].CLK
 clk => RAM.waddr_a[1].CLK
@@ -839,7 +860,7 @@ rd2[6] <= rd2.DB_MAX_OUTPUT_PORT_TYPE
 rd2[7] <= rd2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|alu:alunit
+|MiniMips|mipscpu:cpu|datapath:dp|alu:alunit
 a[0] => result.IN0
 a[0] => result.IN0
 a[0] => _.DATAD
@@ -931,7 +952,7 @@ result[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 result[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MiniMips|datapath:dp|zerodetect:zd
+|MiniMips|mipscpu:cpu|datapath:dp|zerodetect:zd
 a[0] => Equal0.IN31
 a[1] => Equal0.IN30
 a[2] => Equal0.IN29
@@ -941,5 +962,84 @@ a[5] => Equal0.IN26
 a[6] => Equal0.IN25
 a[7] => Equal0.IN24
 y <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|MiniMips|exmem:mem
+data[0] => ram.data_a[0].DATAIN
+data[0] => ram.DATAIN
+data[1] => ram.data_a[1].DATAIN
+data[1] => ram.DATAIN1
+data[2] => ram.data_a[2].DATAIN
+data[2] => ram.DATAIN2
+data[3] => ram.data_a[3].DATAIN
+data[3] => ram.DATAIN3
+data[4] => ram.data_a[4].DATAIN
+data[4] => ram.DATAIN4
+data[5] => ram.data_a[5].DATAIN
+data[5] => ram.DATAIN5
+data[6] => ram.data_a[6].DATAIN
+data[6] => ram.DATAIN6
+data[7] => ram.data_a[7].DATAIN
+data[7] => ram.DATAIN7
+addr[0] => ram.waddr_a[0].DATAIN
+addr[0] => addr_reg[0].DATAIN
+addr[0] => ram.WADDR
+addr[1] => ram.waddr_a[1].DATAIN
+addr[1] => addr_reg[1].DATAIN
+addr[1] => ram.WADDR1
+addr[2] => ram.waddr_a[2].DATAIN
+addr[2] => addr_reg[2].DATAIN
+addr[2] => ram.WADDR2
+addr[3] => ram.waddr_a[3].DATAIN
+addr[3] => addr_reg[3].DATAIN
+addr[3] => ram.WADDR3
+addr[4] => ram.waddr_a[4].DATAIN
+addr[4] => addr_reg[4].DATAIN
+addr[4] => ram.WADDR4
+addr[5] => ram.waddr_a[5].DATAIN
+addr[5] => addr_reg[5].DATAIN
+addr[5] => ram.WADDR5
+addr[6] => ram.waddr_a[6].DATAIN
+addr[6] => addr_reg[6].DATAIN
+addr[6] => ram.WADDR6
+addr[7] => ram.waddr_a[7].DATAIN
+addr[7] => addr_reg[7].DATAIN
+addr[7] => ram.WADDR7
+we => ram.we_a.DATAIN
+we => ram.WE
+clk => ram.we_a.CLK
+clk => ram.waddr_a[7].CLK
+clk => ram.waddr_a[6].CLK
+clk => ram.waddr_a[5].CLK
+clk => ram.waddr_a[4].CLK
+clk => ram.waddr_a[3].CLK
+clk => ram.waddr_a[2].CLK
+clk => ram.waddr_a[1].CLK
+clk => ram.waddr_a[0].CLK
+clk => ram.data_a[7].CLK
+clk => ram.data_a[6].CLK
+clk => ram.data_a[5].CLK
+clk => ram.data_a[4].CLK
+clk => ram.data_a[3].CLK
+clk => ram.data_a[2].CLK
+clk => ram.data_a[1].CLK
+clk => ram.data_a[0].CLK
+clk => addr_reg[0].CLK
+clk => addr_reg[1].CLK
+clk => addr_reg[2].CLK
+clk => addr_reg[3].CLK
+clk => addr_reg[4].CLK
+clk => addr_reg[5].CLK
+clk => addr_reg[6].CLK
+clk => addr_reg[7].CLK
+clk => ram.CLK0
+q[0] <= ram.DATAOUT
+q[1] <= ram.DATAOUT1
+q[2] <= ram.DATAOUT2
+q[3] <= ram.DATAOUT3
+q[4] <= ram.DATAOUT4
+q[5] <= ram.DATAOUT5
+q[6] <= ram.DATAOUT6
+q[7] <= ram.DATAOUT7
 
 

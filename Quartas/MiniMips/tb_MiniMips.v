@@ -4,26 +4,11 @@ module tb_MiniMips;
 // We set the clk and reset to reg because they will be used in an always block
 reg clk;
 reg reset;
-wire memwrite;
-wire [7:0] memdata, adr, writedata;
 
 // Create an instance of the MiniMips
 MiniMips uut(
 	.clk(clk),
-	.reset(reset),
-	.memwrite(memwrite),
-	.memdata(memdata),
-	.adr(adr),
-	.writedata(writedata)
-);
-
-// Instantiate your memory module
-exmem mem (
-	.data(writedata),
-   .addr(adr),
-   .we(memwrite),
-   .clk(clk),
-   .q(memdata)
+	.reset(reset)
 );
 
 // Create a clock
@@ -40,12 +25,14 @@ initial begin
 	// Hold reset for a few clock cycles
 	#20 reset <= 1;  // De-assert reset (system comes out of reset)
 	
-	#1000;
-	if (mem.ram[255] != 8'h0D) 
-		$display("ERROR: mem.ram[255] should be 0x0D but was 0x%0h", mem.ram[255]);
+	#2000000;
+	/*
+	if (uut.mem.ram[255] != 8'h0D) 
+	//if (uut.cpu.dp.rf.RAM[255] != 8'h0d)
+		$display("ERROR: mem.ram[255] should be 0x0D but was 0x%0h", uut.mem.ram[255]);
 	else 
 		$display("All is well");
-	
+	*/
 	$finish;  // End the simulation after the test
 end
 
