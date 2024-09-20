@@ -26,13 +26,11 @@ initial begin
 	#20 reset <= 1;  // De-assert reset (system comes out of reset)
 	
 	#2000000;
-	/*
 	if (uut.mem.ram[255] != 8'h0D) 
 	//if (uut.cpu.dp.rf.RAM[255] != 8'h0d)
 		$display("ERROR: mem.ram[255] should be 0x0D but was 0x%0h", uut.mem.ram[255]);
 	else 
 		$display("All is well");
-	*/
 	$finish;  // End the simulation after the test
 end
 

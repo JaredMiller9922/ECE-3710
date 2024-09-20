@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MiniMips
-Thu Sep 19 21:31:11 2024
+Fri Sep 20 17:03:54 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -47,16 +47,18 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
  39. Parameter Settings for User Entity Instance: mipscpu:cpu|datapath:dp|alu:alunit
  40. Parameter Settings for User Entity Instance: mipscpu:cpu|datapath:dp|zerodetect:zd
  41. Parameter Settings for User Entity Instance: exmem:mem
- 42. Parameter Settings for Inferred Entity Instance: exmem:mem|altsyncram:ram_rtl_0
- 43. Parameter Settings for Inferred Entity Instance: mipscpu:cpu|datapath:dp|regfile:rf|altsyncram:RAM_rtl_0
- 44. Parameter Settings for Inferred Entity Instance: mipscpu:cpu|datapath:dp|regfile:rf|altsyncram:RAM_rtl_1
- 45. altsyncram Parameter Settings by Entity Instance
- 46. Port Connectivity Checks: "mipscpu:cpu|datapath:dp|mux4:pcmux"
- 47. Port Connectivity Checks: "mipscpu:cpu|datapath:dp|mux4:src2mux"
- 48. Port Connectivity Checks: "mipscpu:cpu|datapath:dp"
- 49. Post-Synthesis Netlist Statistics for Top Partition
- 50. Elapsed Time Per Partition
- 51. Analysis & Synthesis Messages
+ 42. Parameter Settings for User Entity Instance: flopenr:flop
+ 43. Parameter Settings for User Entity Instance: mux2:mux
+ 44. Parameter Settings for Inferred Entity Instance: exmem:mem|altsyncram:ram_rtl_0
+ 45. Parameter Settings for Inferred Entity Instance: mipscpu:cpu|datapath:dp|regfile:rf|altsyncram:RAM_rtl_0
+ 46. Parameter Settings for Inferred Entity Instance: mipscpu:cpu|datapath:dp|regfile:rf|altsyncram:RAM_rtl_1
+ 47. altsyncram Parameter Settings by Entity Instance
+ 48. Port Connectivity Checks: "mipscpu:cpu|datapath:dp|mux4:pcmux"
+ 49. Port Connectivity Checks: "mipscpu:cpu|datapath:dp|mux4:src2mux"
+ 50. Port Connectivity Checks: "mipscpu:cpu|datapath:dp"
+ 51. Post-Synthesis Netlist Statistics for Top Partition
+ 52. Elapsed Time Per Partition
+ 53. Analysis & Synthesis Messages
 
 
 
@@ -83,7 +85,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Sep 19 21:31:11 2024          ;
+; Analysis & Synthesis Status     ; Successful - Fri Sep 20 17:03:54 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; MiniMips                                       ;
 ; Top-level Entity Name           ; MiniMips                                       ;
@@ -196,14 +198,14 @@ https://fpgasoftware.intel.com/eula.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 16          ;
-; Maximum allowed            ; 16          ;
+; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 16          ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.0%      ;
+;     Processors 2-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -227,7 +229,7 @@ https://fpgasoftware.intel.com/eula.
 ; altram.inc                                ; yes             ; Megafunction                                          ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc                                 ;         ;
 ; altdpram.inc                              ; yes             ; Megafunction                                          ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc                               ;         ;
 ; db/altsyncram_14f1.tdf                    ; yes             ; Auto-Generated Megafunction                           ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/db/altsyncram_14f1.tdf                    ;         ;
-; db/MiniMips.ram0_exmem_214384cb.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/db/MiniMips.ram0_exmem_214384cb.hdl.mif   ;         ;
+; db/minimips.ram0_exmem_214384cb.hdl.mif   ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/db/minimips.ram0_exmem_214384cb.hdl.mif   ;         ;
 ; db/altsyncram_96n1.tdf                    ; yes             ; Auto-Generated Megafunction                           ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/db/altsyncram_96n1.tdf                    ;         ;
 ; db/minimips.ram0_regfile_66da57bc.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/db/minimips.ram0_regfile_66da57bc.hdl.mif ;         ;
 +-------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------+---------+
@@ -238,14 +240,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 97        ;
+; Estimate of Logic utilization (ALMs needed) ; 96        ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 157       ;
+; Combinational ALUT usage for logic          ; 156       ;
 ;     -- 7 input functions                    ; 0         ;
 ;     -- 6 input functions                    ; 27        ;
 ;     -- 5 input functions                    ; 46        ;
-;     -- 4 input functions                    ; 28        ;
-;     -- <=3 input functions                  ; 56        ;
+;     -- 4 input functions                    ; 29        ;
+;     -- <=3 input functions                  ; 54        ;
 ;                                             ;           ;
 ; Dedicated logic registers                   ; 132       ;
 ;                                             ;           ;
@@ -257,8 +259,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 156       ;
-; Total fan-out                               ; 1254      ;
-; Average fan-out                             ; 3.59      ;
+; Total fan-out                               ; 1252      ;
+; Average fan-out                             ; 3.60      ;
 +---------------------------------------------+-----------+
 
 
@@ -267,15 +269,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                              ; Entity Name     ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------+-----------------+--------------+
-; |MiniMips                                       ; 157 (11)            ; 132 (8)                   ; 2176              ; 0          ; 18   ; 0            ; |MiniMips                                                                                        ; MiniMips        ; work         ;
+; |MiniMips                                       ; 156 (1)             ; 132 (0)                   ; 2176              ; 0          ; 18   ; 0            ; |MiniMips                                                                                        ; MiniMips        ; work         ;
 ;    |exmem:mem|                                  ; 0 (0)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |MiniMips|exmem:mem                                                                              ; exmem           ; work         ;
 ;       |altsyncram:ram_rtl_0|                    ; 0 (0)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |MiniMips|exmem:mem|altsyncram:ram_rtl_0                                                         ; altsyncram      ; work         ;
 ;          |altsyncram_14f1:auto_generated|       ; 0 (0)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |MiniMips|exmem:mem|altsyncram:ram_rtl_0|altsyncram_14f1:auto_generated                          ; altsyncram_14f1 ; work         ;
+;    |flopenr:flop|                               ; 1 (1)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |MiniMips|flopenr:flop                                                                           ; flopenr         ; work         ;
 ;    |mipscpu:cpu|                                ; 146 (0)             ; 124 (0)                   ; 128               ; 0          ; 0    ; 0            ; |MiniMips|mipscpu:cpu                                                                            ; mipscpu         ; work         ;
-;       |alucontrol:ac|                           ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MiniMips|mipscpu:cpu|alucontrol:ac                                                              ; alucontrol      ; work         ;
+;       |alucontrol:ac|                           ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MiniMips|mipscpu:cpu|alucontrol:ac                                                              ; alucontrol      ; work         ;
 ;       |controller:cont|                         ; 29 (29)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |MiniMips|mipscpu:cpu|controller:cont                                                            ; controller      ; work         ;
-;       |datapath:dp|                             ; 111 (0)             ; 109 (0)                   ; 128               ; 0          ; 0    ; 0            ; |MiniMips|mipscpu:cpu|datapath:dp                                                                ; datapath        ; work         ;
-;          |alu:alunit|                           ; 25 (25)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MiniMips|mipscpu:cpu|datapath:dp|alu:alunit                                                     ; alu             ; work         ;
+;       |datapath:dp|                             ; 110 (0)             ; 109 (0)                   ; 128               ; 0          ; 0    ; 0            ; |MiniMips|mipscpu:cpu|datapath:dp                                                                ; datapath        ; work         ;
+;          |alu:alunit|                           ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MiniMips|mipscpu:cpu|datapath:dp|alu:alunit                                                     ; alu             ; work         ;
 ;          |flopenr:ir0|                          ; 1 (1)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |MiniMips|mipscpu:cpu|datapath:dp|flopenr:ir0                                                    ; flopenr         ; work         ;
 ;          |flopenr:ir1|                          ; 1 (1)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |MiniMips|mipscpu:cpu|datapath:dp|flopenr:ir1                                                    ; flopenr         ; work         ;
 ;          |flopenr:ir2|                          ; 6 (6)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |MiniMips|mipscpu:cpu|datapath:dp|flopenr:ir2                                                    ; flopenr         ; work         ;
@@ -295,6 +298,7 @@ https://fpgasoftware.intel.com/eula.
 ;                |altsyncram_96n1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |MiniMips|mipscpu:cpu|datapath:dp|regfile:rf|altsyncram:RAM_rtl_0|altsyncram_96n1:auto_generated ; altsyncram_96n1 ; work         ;
 ;             |altsyncram:RAM_rtl_1|              ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |MiniMips|mipscpu:cpu|datapath:dp|regfile:rf|altsyncram:RAM_rtl_1                                ; altsyncram      ; work         ;
 ;                |altsyncram_96n1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |MiniMips|mipscpu:cpu|datapath:dp|regfile:rf|altsyncram:RAM_rtl_1|altsyncram_96n1:auto_generated ; altsyncram_96n1 ; work         ;
+;    |mux2:mux|                                   ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |MiniMips|mux2:mux                                                                               ; mux2            ; work         ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -353,9 +357,9 @@ Encoding Type:  One-Hot
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 132   ;
-; Number of registers using Synchronous Clear  ; 40    ;
+; Number of registers using Synchronous Clear  ; 48    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 8     ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 33    ;
 ; Number of registers using Preset             ; 0     ;
@@ -375,12 +379,12 @@ Encoding Type:  One-Hot
 ; mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_1_bypass[18] ; 1       ;
 ; mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_1_bypass[20] ; 1       ;
 ; mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_1_bypass[22] ; 1       ;
-; mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_0_bypass[22] ; 1       ;
 ; mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_0_bypass[20] ; 1       ;
+; mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_0_bypass[22] ; 1       ;
 ; mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_0_bypass[8]  ; 1       ;
 ; mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_0_bypass[18] ; 1       ;
-; mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_0_bypass[16] ; 1       ;
 ; mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_0_bypass[14] ; 1       ;
+; mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_0_bypass[16] ; 1       ;
 ; mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_0_bypass[12] ; 1       ;
 ; mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_0_bypass[10] ; 1       ;
 ; Total number of inverted registers = 16                 ;         ;
@@ -455,17 +459,18 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |MiniMips|mipscpu:cpu|datapath:dp|flopenr:ir0|q[3]   ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |MiniMips|mipscpu:cpu|datapath:dp|flopenr:ir1|q[4]   ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |MiniMips|mipscpu:cpu|datapath:dp|flopenr:ir3|q[5]   ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |MiniMips|mipscpu:cpu|datapath:dp|flopenr:pcreg|q[1] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |MiniMips|mipscpu:cpu|datapath:dp|flopenr:ir0|q[6]   ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |MiniMips|mipscpu:cpu|datapath:dp|flopenr:ir1|q[5]   ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |MiniMips|mipscpu:cpu|datapath:dp|flopenr:ir3|q[7]   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |MiniMips|flopenr:flop|q[5]                          ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |MiniMips|mipscpu:cpu|datapath:dp|flopenr:pcreg|q[0] ;
 ; 6:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; Yes        ; |MiniMips|mipscpu:cpu|datapath:dp|flopenr:pcreg|q[2] ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |MiniMips|mipscpu:cpu|datapath:dp|flopenr:ir2|q      ;
 ; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |MiniMips|mipscpu:cpu|controller:cont|state          ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |MiniMips|mipscpu:cpu|controller:cont|state          ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |MiniMips|mipscpu:cpu|datapath:dp|mux4:src2mux|Mux6  ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |MiniMips|mipscpu:cpu|datapath:dp|mux4:src2mux|Mux4  ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |MiniMips|mipscpu:cpu|datapath:dp|alu:alunit|Mux2    ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |MiniMips|mipscpu:cpu|datapath:dp|mux4:src2mux|Mux7  ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |MiniMips|mipscpu:cpu|datapath:dp|mux4:src2mux|Mux0  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |MiniMips|mipscpu:cpu|datapath:dp|alu:alunit|Mux0    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
 
 
@@ -753,6 +758,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: flopenr:flop ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; WIDTH          ; 8     ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2:mux ;
++----------------+-------+------------------------------+
+; Parameter Name ; Value ; Type                         ;
++----------------+-------+------------------------------+
+; WIDTH          ; 8     ; Signed Integer               ;
++----------------+-------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: exmem:mem|altsyncram:ram_rtl_0               ;
 +------------------------------------+-----------------------------------------+----------------+
@@ -1013,15 +1038,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; arriav_ff             ; 132                         ;
 ;     ENA               ; 17                          ;
-;     ENA CLR           ; 8                           ;
-;     ENA SCLR          ; 8                           ;
+;     ENA SCLR          ; 16                          ;
 ;     SCLR              ; 32                          ;
 ;     plain             ; 67                          ;
-; arriav_lcell_comb     ; 157                         ;
-;     normal            ; 149                         ;
+; arriav_lcell_comb     ; 156                         ;
+;     normal            ; 148                         ;
 ;         2 data inputs ; 12                          ;
-;         3 data inputs ; 37                          ;
-;         4 data inputs ; 27                          ;
+;         3 data inputs ; 35                          ;
+;         4 data inputs ; 28                          ;
 ;         5 data inputs ; 46                          ;
 ;         6 data inputs ; 27                          ;
 ;     shared            ; 8                           ;
@@ -1050,24 +1074,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Thu Sep 19 21:31:04 2024
+    Info: Processing started: Fri Sep 20 17:03:48 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MiniMips -c MiniMips
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (12021): Found 13 design units, including 13 entities, in source file mipscpu.v
     Info (12023): Found entity 1: mipscpu File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 15
     Info (12023): Found entity 2: controller File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 46
-    Info (12023): Found entity 3: alucontrol File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 249
-    Info (12023): Found entity 4: datapath File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 270
-    Info (12023): Found entity 5: alu File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 324
-    Info (12023): Found entity 6: regfile File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 353
-    Info (12023): Found entity 7: zerodetect File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 382
-    Info (12023): Found entity 8: flop File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 389
-    Info (12023): Found entity 9: flopr File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 398
-    Info (12023): Found entity 10: flopen File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 408
-    Info (12023): Found entity 11: flopenr File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 417
-    Info (12023): Found entity 12: mux2 File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 427
-    Info (12023): Found entity 13: mux4 File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 435
+    Info (12023): Found entity 3: alucontrol File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 259
+    Info (12023): Found entity 4: datapath File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 280
+    Info (12023): Found entity 5: alu File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 334
+    Info (12023): Found entity 6: regfile File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 363
+    Info (12023): Found entity 7: zerodetect File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 392
+    Info (12023): Found entity 8: flop File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 399
+    Info (12023): Found entity 9: flopr File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 408
+    Info (12023): Found entity 10: flopen File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 418
+    Info (12023): Found entity 11: flopenr File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 427
+    Info (12023): Found entity 12: mux2 File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 437
+    Info (12023): Found entity 13: mux4 File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 445
 Info (12021): Found 1 design units, including 1 entities, in source file exmem.v
     Info (12023): Found entity 1: exmem File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/exmem.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file minimips.v
@@ -1075,25 +1099,27 @@ Info (12021): Found 1 design units, including 1 entities, in source file minimip
 Info (12021): Found 1 design units, including 1 entities, in source file tb_minimips.v
     Info (12023): Found entity 1: tb_MiniMips File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v Line: 2
 Info (12127): Elaborating entity "MiniMips" for the top level hierarchy
-Info (12128): Elaborating entity "mipscpu" for hierarchy "mipscpu:cpu" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v Line: 28
+Info (12128): Elaborating entity "mipscpu" for hierarchy "mipscpu:cpu" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v Line: 30
 Info (12128): Elaborating entity "controller" for hierarchy "mipscpu:cpu|controller:cont" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 35
 Info (12128): Elaborating entity "alucontrol" for hierarchy "mipscpu:cpu|alucontrol:ac" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 36
 Info (12128): Elaborating entity "datapath" for hierarchy "mipscpu:cpu|datapath:dp" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 40
-Info (12128): Elaborating entity "mux2" for hierarchy "mipscpu:cpu|datapath:dp|mux2:regmux" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 296
-Info (12128): Elaborating entity "flopenr" for hierarchy "mipscpu:cpu|datapath:dp|flopenr:ir0" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 299
-Info (12128): Elaborating entity "flopr" for hierarchy "mipscpu:cpu|datapath:dp|flopr:mdr" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 306
-Info (12128): Elaborating entity "mux2" for hierarchy "mipscpu:cpu|datapath:dp|mux2:adrmux" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 310
-Info (12128): Elaborating entity "mux4" for hierarchy "mipscpu:cpu|datapath:dp|mux4:src2mux" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 313
-Info (12128): Elaborating entity "regfile" for hierarchy "mipscpu:cpu|datapath:dp|regfile:rf" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 318
-Info (10648): Verilog HDL Display System Task info at mipscpu.v(363): Loading register file File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 363
-Info (10648): Verilog HDL Display System Task info at mipscpu.v(366): done with RF load File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 366
-Warning (10230): Verilog HDL assignment warning at mipscpu.v(376): truncated value with size 32 to match size of target (8) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 376
-Warning (10230): Verilog HDL assignment warning at mipscpu.v(377): truncated value with size 32 to match size of target (8) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 377
-Info (12128): Elaborating entity "alu" for hierarchy "mipscpu:cpu|datapath:dp|alu:alunit" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 319
-Info (12128): Elaborating entity "zerodetect" for hierarchy "mipscpu:cpu|datapath:dp|zerodetect:zd" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 320
-Info (12128): Elaborating entity "exmem" for hierarchy "exmem:mem" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v Line: 37
+Info (12128): Elaborating entity "mux2" for hierarchy "mipscpu:cpu|datapath:dp|mux2:regmux" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 306
+Info (12128): Elaborating entity "flopenr" for hierarchy "mipscpu:cpu|datapath:dp|flopenr:ir0" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 309
+Info (12128): Elaborating entity "flopr" for hierarchy "mipscpu:cpu|datapath:dp|flopr:mdr" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 316
+Info (12128): Elaborating entity "mux2" for hierarchy "mipscpu:cpu|datapath:dp|mux2:adrmux" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 320
+Info (12128): Elaborating entity "mux4" for hierarchy "mipscpu:cpu|datapath:dp|mux4:src2mux" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 323
+Info (12128): Elaborating entity "regfile" for hierarchy "mipscpu:cpu|datapath:dp|regfile:rf" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 328
+Info (10648): Verilog HDL Display System Task info at mipscpu.v(373): Loading register file File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 373
+Info (10648): Verilog HDL Display System Task info at mipscpu.v(376): done with RF load File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 376
+Warning (10230): Verilog HDL assignment warning at mipscpu.v(386): truncated value with size 32 to match size of target (8) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 386
+Warning (10230): Verilog HDL assignment warning at mipscpu.v(387): truncated value with size 32 to match size of target (8) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 387
+Info (12128): Elaborating entity "alu" for hierarchy "mipscpu:cpu|datapath:dp|alu:alunit" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 329
+Info (12128): Elaborating entity "zerodetect" for hierarchy "mipscpu:cpu|datapath:dp|zerodetect:zd" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v Line: 330
+Info (12128): Elaborating entity "exmem" for hierarchy "exmem:mem" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v Line: 39
 Info (10648): Verilog HDL Display System Task info at exmem.v(26): Loading memory File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/exmem.v Line: 26
 Info (10648): Verilog HDL Display System Task info at exmem.v(28): done loading File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/exmem.v Line: 28
+Info (12128): Elaborating entity "flopenr" for hierarchy "flopenr:flop" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v Line: 45
+Info (12128): Elaborating entity "mux2" for hierarchy "mux2:mux" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v Line: 46
 Warning (276021): Created node "exmem:mem|ram" as a single-port RAM by generating altsyncram megafunction to implement register logic. Power-up values at the outputs of the RAM are different from the original design. File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/exmem.v Line: 13
 Warning (276020): Inferred RAM node "mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "mipscpu:cpu|datapath:dp|regfile:rf|RAM_rtl_1" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
@@ -1178,15 +1204,15 @@ Info (286030): Timing-Driven Synthesis is running
 Info (17049): 4 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 286 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 285 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 10 input pins
     Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 244 logic cells
+    Info (21061): Implemented 243 logic cells
     Info (21064): Implemented 24 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 4881 megabytes
-    Info: Processing ended: Thu Sep 19 21:31:11 2024
-    Info: Elapsed time: 00:00:07
+    Info: Peak virtual memory: 4864 megabytes
+    Info: Processing ended: Fri Sep 20 17:03:54 2024
+    Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:10
 
 

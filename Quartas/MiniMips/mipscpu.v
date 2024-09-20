@@ -67,8 +67,10 @@ module controller(input            clk, reset,
    parameter   RTYPEWR =  4'b1011;
    parameter   BEQEX   =  4'b1100;
    parameter   JEX     =  4'b1101;
+	// -------------- Jared Added -------------- //
 	parameter	ADDIEX  =  4'b1110;
 	parameter	ADDIWR  =  4'b1111;
+	// -------------- Jared Added -------------- //
 
 	// parameters used for instruction types 
    parameter   LB      =  6'b100000;
@@ -76,7 +78,9 @@ module controller(input            clk, reset,
    parameter   RTYPE   =  6'b0;
    parameter   BEQ     =  6'b000100;
    parameter   J       =  6'b000010;
+	// -------------- Jared Added -------------- //
 	parameter   ADDI    =  6'b001000;
+	// -------------- Jared Added -------------- //
 
 
    reg [3:0] state, nextstate;       // state register and nextstate value
@@ -99,7 +103,9 @@ module controller(input            clk, reset,
 					begin
 					// $display("Got into the Decode state, checking opcode: %b", op);
 					case(op)
+								// -------------- Jared Added -------------- //
 								ADDI:    nextstate <= ADDIEX;
+								// -------------- Jared Added -------------- //
                         LB:      nextstate <= MEMADR;
                         SB:      nextstate <= MEMADR;
                         RTYPE:   nextstate <= RTYPEEX;
@@ -113,8 +119,10 @@ module controller(input            clk, reset,
                         SB:      nextstate <= SBWR;
                         default: nextstate <= FETCH1; // should never happen
                      endcase
+				// -------------- Jared Added -------------- //
 				ADDIEX:  nextstate <= ADDIWR;
 				ADDIWR:  nextstate <= FETCH1; // Just like afer RTYPEWR we go back to Fetch 1 to continue operation
+				// -------------- Jared Added -------------- //
             LBRD:    nextstate <= LBWR;
             LBWR:    nextstate <= FETCH1;
             SBWR:    nextstate <= FETCH1;
@@ -189,6 +197,7 @@ module controller(input            clk, reset,
 						begin
 							alusrcb <= 2'b11;
 						end
+					// -------------- Jared Added -------------- //
 					ADDIEX: 
 						begin						
 							alusrca <= 1; // Set to 1 because we want the Register value not the pc
@@ -198,6 +207,7 @@ module controller(input            clk, reset,
 						begin
 							regwrite <= 1; // We want to write a value to a register
 						end
+					// -------------- Jared Added -------------- //
                MEMADR:
                   begin
                      alusrca <= 1;

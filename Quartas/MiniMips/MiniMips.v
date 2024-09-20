@@ -4,53 +4,45 @@ module MiniMips #(parameter WIDTH = 8, REGBITS = 3, DATA_WIDTH = 8, ADDR_WIDTH =
 	input clk,                  // 50MHz clock
    input reset,                // active-low reset
 	input [7:0] switches,
-	output reg [7:0] leds
+	output [7:0] leds
 );
 
-// Regs are values that need to store values
-wire [7:0] adr; // Memory location to write to
-wire [7:0] writedata; // Data that needs to be written
-wire [(DATA_WIDTH-1):0] q; // Memory output from exmem or switches
-wire memwrite; // Signal that tells us when we are doing a write
-wire[7:0] mem_q; // The data from external memory
-wire[1:0] addr_top_2 = adr[7:6]; // Top two bits of the memory address
-wire mem_write_en; // Signal that says if we are writing to memory
-wire io_write_en; // Signal that says we are writing to io
+
+wire [7:0] adr;			 			// Memory location to write to
+wire [7:0] writedata; 	 			// Data to be written
+wire [7:0] data;						// Data the processor takes in
+wire [7:0] mem_data;					// The data returned from external memory
+wire [7:0] fib_address;				// Register to compute what fibonacci number we want to see 
+
+wire memwrite_en; 					// High if we are writing to memory
+wire io_space;							// High if we are in the 'IO space'
+wire led_write_en;					// High if we should write to the leds
+wire clkbar;							// Inverted clock
 
 // Instantiate CPU 
 mipscpu  #(.WIDTH(WIDTH), .REGBITS(REGBITS)) cpu (
 	.clk(clk),
 	.reset(reset),
-	.memdata(q), // This will determined by the MUX it will either be from the switches or from the mem
+	.memdata(data),
 	.adr(adr),
 	.writedata(writedata),
-	.memwrite(memwrite)
+	.memwrite(memwrite_en)
 );
 
 // Instantiate Memory
 exmem #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(ADDR_WIDTH)) mem (
 	.data(writedata),
 	.addr(adr),
-	.we(mem_write_en),
-	.clk(~clk),
-	.q(mem_q)
+	.we(memwrite_en),
+	.clk(clkbar),
+	.q(mem_data)
 );
 
-assign mem_write_en = memwrite && (addr_top_2 == 2'b00 || addr_top_2 == 2'b01 || addr_top_2 == 2'b10);
-assign io_write_en = memwrite && (addr_top_2 == 2'b11);
+assign clkbar = ~clk;
+assign io_space = adr[7] & adr[6];
+assign led_write_en = (io_space && memwrite_en);
 
-assign q = (addr_top_2 == 2'b11) ? switches : mem_q; // Mux can be implemented using a simple lambda function
-
-// Check your switches at the posedge of the clock
-always @(posedge clk or negedge reset)
-	begin
-		if (!reset) // If we reset the circuit set led's to 0
-			leds = 8'b0;
-		else if (io_write_en)
-			leds = writedata;
-		else 
-			leds = leds;
-	
-	end
+flopenr flop (clkbar, reset, led_write_en, writedata, leds);
+mux2 mux(mem_data, switches, io_space, data);
 
 endmodule

@@ -1,8 +1,12 @@
 m255
 K4
 z2
-!s12c _opt
-Z0 !s99 nomlopt
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
 !s11f vlog 2023.3 2023.07, Jul 17 2023
 13
 !s112 1.1
@@ -10,386 +14,386 @@ Z0 !s99 nomlopt
 !i10e 25
 !i10f 100
 cModel Technology
-Z1 dC:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/simulation/questa
+Z2 dC:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/simulation/questa
 T_opt
-!s110 1726803180
-V7Q<;SeG17b2WUGLX=N6>e2
+!s110 1726873996
+V=;SLjDjV=AP0?K9F9Z;n52
 04 11 4 work tb_MiniMips fast 0
-=1-ec2e98157875-66ececec-c9-3f00
-R0
+=1-b42e9934b534-66ee018b-353-48fc
+R1
 !s12b OEM100
-!s124 OEM10U25 
+!s124 OEM10U27 
 o-quiet -auto_acc_if_foreign -work work +acc
-Z2 tCvgOpt 0
+Z3 tCvgOpt 0
 n@_opt
 OL;O;2023.3;77
 valu
-Z3 2C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v
-Z4 !s110 1726803168
+Z4 2C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v
+Z5 !s110 1726873984
 !i10b 1
-!s100 SnBDFf;3kSiNR?WaVPHh82
-IcC8K4FY>DS:EMz?T`ei=U0
-R1
-Z5 w1726800382
-Z6 8C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v
-Z7 FC:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v
-!i122 5
-L0 324 20
-Z8 VDg1SIo80bB@j0V0VzS_@n1
-Z9 OL;L;2023.3;77
+!s100 3iN_2O?MUgH@a4afHQ:j61
+I3@EL@X3PTA5YT_cPbTol22
+R2
+Z6 w1726873337
+Z7 8C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v
+Z8 FC:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v
+!i122 17
+L0 334 20
+Z9 VDg1SIo80bB@j0V0VzS_@n1
+Z10 OL;L;2023.3;77
 r1
 !s85 0
 31
-Z10 !s108 1726803168.000000
-Z11 !s107 C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v|
-Z12 !s90 -reportprogress|300|-work|work|C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v|
+Z11 !s108 1726873984.000000
+Z12 !s107 C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v|
+Z13 !s90 -reportprogress|300|-work|work|C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/mipscpu.v|
 !i113 0
-Z13 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R2
+Z14 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
 valucontrol
-R3
 R4
-!i10b 1
-!s100 H2^ZjjT3Nik1f0c_I14[I0
-IEm4WV_ZFE^R>G7T[7WG>>1
-R1
 R5
+!i10b 1
+!s100 >AQ2kOEXzHadHL[0fh^kb3
+I1JJ<58;eVXQkH?lXHYz?E3
+R2
 R6
 R7
-!i122 5
-L0 249 18
 R8
+!i122 17
+L0 259 18
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
-R2
+!i113 0
+R14
+R3
 vcontroller
-R3
 R4
-!i10b 1
-!s100 IfA8<eQKdA0T<fBh1SK>n1
-IGaBERRF:KEMSBW:PTW]0L0
-R1
 R5
+!i10b 1
+!s100 LoinHVnzGzEBVAn8]R7DM3
+IlG??:Yn:`_Z7@K=o8_CdW3
+R2
 R6
 R7
-!i122 5
-L0 46 200
 R8
+!i122 17
+L0 46 210
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
-R2
+!i113 0
+R14
+R3
 vdatapath
-R3
 R4
-!i10b 1
-!s100 ]0FJ5[i@o[FABS8?LWYZE1
-I[^2LbEbzz?Q[C2K_5e]XY2
-R1
 R5
+!i10b 1
+!s100 b@L3HQ?AMzQAgQS1Z]M_S1
+ITkjh24;>48IoFWj2LN?ST3
+R2
 R6
 R7
-!i122 5
-L0 270 52
 R8
+!i122 17
+L0 280 52
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
-R2
+!i113 0
+R14
+R3
 vexmem
 2C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/exmem.v
-R4
+R5
 !i10b 1
 !s100 ;AbkC`BBZN:ECNFTFcQbA1
 IdEPkezY>f`RCC^cdAhF2O0
-R1
-w1726800516
+R2
+w1726873976
 8C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/exmem.v
 FC:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/exmem.v
-!i122 3
+!i122 15
 L0 4 49
-R8
 R9
+R10
 r1
 !s85 0
 31
-R10
+R11
 !s107 C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/exmem.v|
 !s90 -reportprogress|300|-work|work|C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/exmem.v|
 !i113 0
-R13
-R2
+R14
+R3
 vflop
-R3
 R4
-!i10b 1
-!s100 =IjzZBob9jnYehzB2hKQA3
-I2=H^<DgXZBG4RREU^]7Se3
-R1
 R5
+!i10b 1
+!s100 ]LKh:WAON06fg7Lc6ehTL2
+IdnKTj8<zBLEjMc1L3LgV@2
+R2
 R6
 R7
-!i122 5
-L0 389 8
 R8
+!i122 17
+L0 399 8
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
-R2
+!i113 0
+R14
+R3
 vflopen
-R3
 R4
-!i10b 1
-!s100 flc[KzPJehRDFJUV@ng@E3
-I;jJbO[S_iH131i4T=EoKS1
-R1
 R5
+!i10b 1
+!s100 XU26Fme8ehW2e^M=DnAj20
+I3FNGRTe_LMXVFI0M3:Cm33
+R2
 R6
 R7
-!i122 5
-L0 408 8
 R8
+!i122 17
+L0 418 8
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
-R2
+!i113 0
+R14
+R3
 vflopenr
-R3
 R4
-!i10b 1
-!s100 R_;z0b@c6Q@Qf8ai37Hao0
-I]5c:abVk4NAk0FBO:>5B03
-R1
 R5
+!i10b 1
+!s100 XHUK9LXBU>3`=<6JIfbNO1
+IQNkYRl:]YT3QDI:9MhPQ<1
+R2
 R6
 R7
-!i122 5
-L0 417 9
 R8
+!i122 17
+L0 427 9
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
-R2
+!i113 0
+R14
+R3
 vflopr
-R3
 R4
-!i10b 1
-!s100 7;:Q>cXG?1_`N]P4=XO863
-Ij@5XLJ`?BfJ2gQde]6Gea2
-R1
 R5
+!i10b 1
+!s100 IUQzkinS0X=J6QegM`JZo3
+I6R2VUOd6WUm<aZBOVEM=V2
+R2
 R6
 R7
-!i122 5
-L0 398 9
 R8
+!i122 17
+L0 408 9
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
-R2
+!i113 0
+R14
+R3
 vMiniMips
 2C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v
-R4
+R5
 !i10b 1
-!s100 =WnYN5=Md@Lh`GORN8LRQ1
-I:NRFbCJQkEGVE8GE1oJAD0
-R1
-w1726794096
+!s100 dDGk]TJ_h6JfYE8=D=Me[3
+I07cAY;BfK1YSY2PEif8a_0
+R2
+w1726872598
 8C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v
 FC:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v
-!i122 4
-L0 2 55
-R8
+!i122 16
+L0 2 47
 R9
+R10
 r1
 !s85 0
 31
-R10
+R11
 !s107 C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v|
 !s90 -reportprogress|300|-work|work|C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/MiniMips.v|
 !i113 0
-R13
-R2
+R14
+R3
 n@mini@mips
 vmipscpu
-R3
 R4
+R5
 !i10b 1
 !s100 9XmQoaKJ0755jh3P3_o0o1
 I]Gl[d[_g3RagzSmZ1eb:42
-R1
-R5
+R2
 R6
 R7
-!i122 5
+R8
+!i122 17
 L0 15 27
-R8
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
-R2
+!i113 0
+R14
+R3
 vmux2
-R3
 R4
-!i10b 1
-!s100 @b6@Jn63FK>Q>FLnCPXMb0
-I:GS9nQagaTBK_FDePl5lQ2
-R1
 R5
+!i10b 1
+!s100 KTT:Y?HngBIL:lGAIeDXT1
+I1^CjBD^Bf>?^MFiYG]2a>2
+R2
 R6
 R7
-!i122 5
-L0 427 7
 R8
+!i122 17
+L0 437 7
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
-R2
+!i113 0
+R14
+R3
 vmux4
-R3
 R4
-!i10b 1
-!s100 Q8^mDV>kEi4JLObg@W<Rf3
-I?BIWWb_9YZ8?SDl8bNT9Q3
-R1
 R5
+!i10b 1
+!s100 6kdHX7De?KG4T?_mD?JWB1
+I>nC`VVL_RIRPJVaPQiDMz0
+R2
 R6
 R7
-!i122 5
-L0 435 13
 R8
+!i122 17
+L0 445 13
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
-R2
+!i113 0
+R14
+R3
 vregfile
-R3
 R4
-!i10b 1
-!s100 R1ZET2QXGP@^4`3z5llP81
-IEF4RjDYdgE^nCP:Y<Z0[Z0
-R1
 R5
+!i10b 1
+!s100 blJZ6U[6l<QkkT^e`RKfz1
+IDezYZC;W>k=od[FLb7G5>2
+R2
 R6
 R7
-!i122 5
-L0 353 26
 R8
+!i122 17
+L0 363 26
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
-R2
+!i113 0
+R14
+R3
 vtb_MiniMips
 2C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v
-R4
+R5
 !i10b 1
-!s100 Jg?KhY>[gTceB8UfmLZPB3
-I;^nNJz3CY>@E;`Mg]g>aU1
-R1
-w1726803063
+!s100 gcYNGlB:=N?HacQ1[H8Ce3
+I;YMKZ@i5NSUON]QDJz]b63
+R2
+w1726873775
 8C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v
 FC:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v
-!i122 6
-L0 2 39
-R8
+!i122 18
+L0 2 37
 R9
+R10
 r1
 !s85 0
 31
-R10
+R11
 !s107 C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v|
 !s90 -reportprogress|300|-work|work|C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/MiniMips/tb_MiniMips.v|
 !i113 0
-R13
-R2
+R14
+R3
 ntb_@mini@mips
 vzerodetect
-R3
 R4
-!i10b 1
-!s100 dzL4`<lD6JHShGFYC3Jl80
-I?]7=cWJ[ElenF44Go7jg50
-R1
 R5
+!i10b 1
+!s100 C0omZPYENaAAFH7b9GGg:1
+ISL>4Vb_clW;KF[UgITPmL2
+R2
 R6
 R7
-!i122 5
-L0 382 5
 R8
+!i122 17
+L0 392 5
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
-R2
+!i113 0
+R14
+R3
