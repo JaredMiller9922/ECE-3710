@@ -1,0 +1,7 @@
+odule vgaControl (
+	input clk50MHz, clr, // system clock and clear
+	output hSync, vSync, // sync signals to the VGA interface
+	output bright, // asserted when the pixel is bright
+	output reg [X:0] hCount, vCount // horiz and vertical count (you pick the X!)
+// these tell you where you are on the screen
+);

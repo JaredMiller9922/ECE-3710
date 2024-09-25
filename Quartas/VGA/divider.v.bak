@@ -1,0 +1,24 @@
+module divider #(parameter width=32)
+(
+	input clk,
+	input reset,
+	output reg en,
+	reg [width-1 : 0] count
+);
+
+	always @(posedge clk)
+		begin
+			if (!reset)
+				begin
+					count <= 0;
+					en <= 0;
+				end
+			else 
+				begin 
+					count <= count + 1'b1;
+					en <= count[0]; 
+				end
+		end
+
+		
+endmodule
