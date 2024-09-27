@@ -1,8 +1,8 @@
 module vgaControl (
-	input clk50Mhz, reset, // system clock and clear
-	output reg hSync, vSync, // active low sync signals to the VGA interface
-	output reg bright, // asserted when the pixel is bright active low
-	output reg [9:0] hCount, vCount // horiz and vertical count // these tell you where you are on the screen
+    input clk50Mhz, reset, // system clock and reset
+    output reg hSync, vSync, // active low sync signals to the VGA interface
+    output reg bright, // asserted when the pixel is bright active low
+    output reg [12:0] hCount, vCount // horiz and vertical count // these tell you where you are on the screen
 );
 
 // 1.) Pulse width: How long are we going to hold the sync pulse
@@ -10,112 +10,87 @@ module vgaControl (
 // 3.) Display Time: How long we are going to be "bright" for
 // 4.) Front porch: How long before we can safely assert the sync pulse
 
-// Horizontal timing defined by the number of clock cycles
-localparam h_Ts = 800; 		// | Sync Pulse Time
-localparam h_Tdisp = 640;  // | Display Time
-localparam h_Tpw = 96; 		// | Pulse Width
-localparam h_Tfp = 16;		// | Front Porch
-localparam h_Tbp = 48;	   // | Back Porch
+// Horizontal and vertical timing parameters
+localparam h_Ts = 800;
+localparam h_Tdisp = 640;
+localparam h_Tpw = 96;
+localparam h_Tfp = 16;
+localparam h_Tbp = 48;
 
-// Vertical timing defined by the number of lines
-localparam v_Ts = 521; 		// | Sync Pulse Time
-localparam v_Tdisp = 480;  // | Display Time
-localparam v_Tpw = 2; 		// | Pulse Width
-localparam v_Tfp = 10;		// | Front Porch
-localparam v_Tbp = 29;	   // | Back Porch
+localparam v_Ts = 521;
+localparam v_Tdisp = 480;
+localparam v_Tpw = 2;
+localparam v_Tfp = 10;
+localparam v_Tbp = 29;
 
-wire horizontal_en; // Signal that says we should increment the horizontal counter
-reg vertical_en; // Signal that says we should increment the vertical counter
+wire horizontal_en; // Trigger signal to increment horizontal counter
+reg vertical_en; // Trigger signal to increment vertical counter
 
-// Create a enable signal for the horizontal counter that divides the clk by 2 making a 25MHz clk
+// Clock divider to generate enable signal for horizontal counter
 divider divClk (
-	.clk(clk50Mhz),
-	.reset(reset),
-	.en(horizontal_en)
+    .clk(clk50Mhz),
+    .reset(reset),
+    .en(horizontal_en)
 );
 
-// Horizontal Counter
-always @(posedge clk50Mhz or negedge reset)
-	begin
-		if (!reset)
-			begin
-				hSync = 1;
-				vSync = 1;
-				bright = 1; 
-				vCount = 0;
-				hCount = 0;
-			end
-		else if (horizontal_en)
-				hCount = hCount + 1;
-		else 
-				hCount = hCount; // Here to prevent latches
-	end
-
-
-// Horizontal Timing Logic
-always @(posedge clk50Mhz or negedge reset)	
-begin		
-	if (hCount < h_Tpw) // Pulse width stage
+// Horizontal and Vertical Counter Logic
+always @(posedge clk50Mhz or negedge reset) begin
+	if (!reset) begin
+		hCount <= 0;
+		vCount <= 0;
+	end 
+	else if (horizontal_en) 
 		begin
-			hSync = 0; // Continue holding the signal low
-			bright = 1; // No need to display right now
-		end
-	else if (hCount < h_Tpw + h_Tbp) // Back porch stage
-		begin
-			hSync = 1; 
-			bright = 1; 
-		end
-	else if (hCount < h_Tpw + h_Tbp + h_Tdisp) // Display stage
-		begin
-			bright = 0;
-		end
-	else if (hCount < h_Tpw + h_Tbp + h_Tdisp + h_Tfp) // front porch stage
-		begin
-			bright = 1;
-		end
-	else // End of the line stage
-		begin
-			bright = 0;
-			hCount = 0;
-			vertical_en = 1;
-		end
+			if (hCount < h_Ts - 1) begin
+				hCount <= hCount + 1;
+			end 
+			else 
+				begin
+					hCount <= 0;
+					if (vCount < v_Ts - 1)
+						vCount <= vCount + 1;
+					else
+						vCount <= 0; // Reset vertical counter after full frame
+				end
+    end
 end
 
-// Vertical Counter
-always @(posedge clk50Mhz or negedge reset)
-	begin
-		if (vertical_en)
-			begin
-				vCount = vCount + 1;
-				vertical_en = 0;
-			end
-		else 
-			vCount = vCount; // Here to prevent latches
-	end
-	
+// Horizontal Timing Logic (hSync and bright signals)
+always @(posedge clk50Mhz or negedge reset) begin
+    if (!reset) begin
+        hSync <= 1;
+        bright <= 1; // Active low signal
+    end else begin
+        if (hCount < h_Tpw) begin
+            hSync <= 0; // Assert sync pulse
+            bright <= 1; // Not displaying
+        end else if (hCount < h_Tpw + h_Tbp) begin
+            hSync <= 1; // Deassert sync pulse
+            bright <= 1; // Not displaying (back porch)
+        end else if (hCount < h_Tpw + h_Tbp + h_Tdisp) begin
+            bright <= 0; // Displaying pixels (active low)
+        end else if (hCount < h_Ts) begin
+            bright <= 1; // Front porch, not displaying
+        end
+    end
+end
+
 // Vertical Timing Logic
-always @(posedge clk50Mhz or negedge reset)	
-begin		
-	if (vCount < v_Tpw) // Pulse width stage
+always @(posedge clk50Mhz or negedge reset) begin
+	if (!reset) begin
+		vSync <= 1; // Deassert sync (active low)
+	end 
+	else 
 		begin
-			vSync = 0; // Continue holding the signal low
-		end
-	else if (vCount < v_Tpw + v_Tbp) // Back porch stage
-		begin
-			vSync = 1; 
-		end
-	else if (vCount < v_Tpw + v_Tbp + v_Tdisp) // Display stage
-		begin
-			vSync = 1;
-		end
-	else if (vCount < v_Tpw + v_Tbp + v_Tdisp + v_Tfp) // front porch stage
-		begin
-			vSync = 1; 
-		end
-	else // End of the display stage
-		begin
-			vCount = 0;
+			if (vCount < v_Tpw) begin // Pulse width stage assert vSync
+            vSync <= 0; // Assert sync pulse (active low)
+			end 
+			else if (vCount < v_Tpw + v_Tbp) begin // Back porch stage deassert vSync
+            vSync <= 1; // Deassert sync
+			end 
+			// No need to worry about the display stage because horizontal should already handle bright assertion
+			else begin end
 		end
 end
-	
+
 endmodule

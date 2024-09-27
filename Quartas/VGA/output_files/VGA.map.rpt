@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VGA
-Tue Sep 24 20:23:57 2024
+Wed Sep 25 18:05:57 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -10,7 +10,16 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Inverted Register Statistics
+ 10. Port Connectivity Checks: "bitGen:bitgen"
+ 11. Port Connectivity Checks: "vgaControl:vgaController"
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -34,22 +43,27 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                 ;
-+-----------------------------+------------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Tue Sep 24 20:23:57 2024              ;
-; Quartus Prime Version       ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
-; Revision Name               ; VGA                                            ;
-; Top-level Entity Name       ; VGA                                            ;
-; Family                      ; Cyclone V                                      ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                      ;
-; Total registers             ; N/A until Partition Merge                      ;
-; Total pins                  ; N/A until Partition Merge                      ;
-; Total virtual pins          ; N/A until Partition Merge                      ;
-; Total block memory bits     ; N/A until Partition Merge                      ;
-; Total PLLs                  ; N/A until Partition Merge                      ;
-; Total DLLs                  ; N/A until Partition Merge                      ;
-+-----------------------------+------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Wed Sep 25 18:05:57 2024          ;
+; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                   ; VGA                                            ;
+; Top-level Entity Name           ; VGA                                            ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 30                                             ;
+; Total pins                      ; 30                                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 0                                              ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -148,11 +162,146 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.0%      ;
 +----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                     ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                       ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
+; vgaControl.v                     ; yes             ; User Verilog HDL File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v ;         ;
+; divider.v                        ; yes             ; User Verilog HDL File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/divider.v    ;         ;
+; bitGen.v                         ; yes             ; User Verilog HDL File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/bitGen.v     ;         ;
+; VGA.v                            ; yes             ; User Verilog HDL File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v        ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 31             ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 54             ;
+;     -- 7 input functions                    ; 0              ;
+;     -- 6 input functions                    ; 8              ;
+;     -- 5 input functions                    ; 8              ;
+;     -- 4 input functions                    ; 3              ;
+;     -- <=3 input functions                  ; 35             ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 30             ;
+;                                             ;                ;
+; I/O pins                                    ; 30             ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; clk50Mhz~input ;
+; Maximum fan-out                             ; 30             ;
+; Total fan-out                               ; 351            ;
+; Average fan-out                             ; 2.44           ;
++---------------------------------------------+----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                          ; Entity Name ; Library Name ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------+-------------+--------------+
+; |VGA                          ; 54 (0)              ; 30 (0)                    ; 0                 ; 0          ; 30   ; 0            ; |VGA                                         ; VGA         ; work         ;
+;    |bitGen:bitgen|            ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGA|bitGen:bitgen                           ; bitGen      ; work         ;
+;    |vgaControl:vgaController| ; 46 (45)             ; 30 (29)                   ; 0                 ; 0          ; 0    ; 0            ; |VGA|vgaControl:vgaController                ; vgaControl  ; work         ;
+;       |divider:divClk|        ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGA|vgaControl:vgaController|divider:divClk ; divider     ; work         ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 30    ;
+; Number of registers using Synchronous Clear  ; 26    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 30    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 26    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; vgaControl:vgaController|hSync         ; 2       ;
+; vgaControl:vgaController|vSync         ; 2       ;
+; vgaControl:vgaController|bright        ; 4       ;
+; Total number of inverted registers = 3 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bitGen:bitgen"                                                                                                                                                                      ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                                                            ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; hCount ; Input ; Warning  ; Input port expression (13 bits) is wider than the input port (10 bits) it drives.  The 3 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; vCount ; Input ; Warning  ; Input port expression (13 bits) is wider than the input port (10 bits) it drives.  The 3 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vgaControl:vgaController"                                                                     ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; hCount[12..10] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vCount[12..10] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 30                          ;
+;     CLR               ; 4                           ;
+;     ENA CLR SCLR      ; 26                          ;
+; arriav_lcell_comb     ; 58                          ;
+;     arith             ; 26                          ;
+;         1 data inputs ; 26                          ;
+;     normal            ; 32                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 3                           ;
+;         5 data inputs ; 8                           ;
+;         6 data inputs ; 8                           ;
+; boundary_port         ; 30                          ;
+;                       ;                             ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 2.04                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -161,7 +310,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Tue Sep 24 20:23:47 2024
+    Info: Processing started: Wed Sep 25 18:05:47 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGA -c VGA
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -173,27 +322,49 @@ Info (12021): Found 1 design units, including 1 entities, in source file bitgen.
     Info (12023): Found entity 1: bitGen File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/bitGen.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file vga.v
     Info (12023): Found entity 1: VGA File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file tb_vga.v
+    Info (12023): Found entity 1: tb_VGA File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/tb_VGA.v Line: 1
 Info (12127): Elaborating entity "VGA" for the top level hierarchy
-Warning (10034): Output port "hSync" at VGA.v(4) has no driver File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 4
-Warning (10034): Output port "vSync" at VGA.v(4) has no driver File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 4
-Info (12128): Elaborating entity "vgaControl" for hierarchy "vgaControl:vgaController" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 16
-Warning (10230): Verilog HDL assignment warning at vgaControl.v(49): truncated value with size 32 to match size of target (10) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 49
-Warning (10230): Verilog HDL assignment warning at vgaControl.v(61): truncated value with size 32 to match size of target (10) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 61
-Warning (10240): Verilog HDL Always Construct warning at vgaControl.v(38): inferring latch(es) for variable "hSync", which holds its previous value in one or more paths through the always construct File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 38
-Warning (10240): Verilog HDL Always Construct warning at vgaControl.v(38): inferring latch(es) for variable "vSync", which holds its previous value in one or more paths through the always construct File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 38
-Warning (10240): Verilog HDL Always Construct warning at vgaControl.v(38): inferring latch(es) for variable "bright", which holds its previous value in one or more paths through the always construct File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 38
-Info (10041): Inferred latch for "bright" at vgaControl.v(38) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 38
-Info (10041): Inferred latch for "vSync" at vgaControl.v(38) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 38
-Info (10041): Inferred latch for "hSync" at vgaControl.v(38) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 38
-Error (10028): Can't resolve multiple constant drivers for net "hSync" at vgaControl.v(76) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 76
-Error (10029): Constant driver at vgaControl.v(38) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 38
-Error (10028): Can't resolve multiple constant drivers for net "vSync" at vgaControl.v(94) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 94
-Error (10028): Can't resolve multiple constant drivers for net "bright" at vgaControl.v(76) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 76
-Error (12152): Can't elaborate user hierarchy "vgaControl:vgaController" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 16
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 5 errors, 8 warnings
-    Error: Peak virtual memory: 4783 megabytes
-    Error: Processing ended: Tue Sep 24 20:23:57 2024
-    Error: Elapsed time: 00:00:10
-    Error: Total CPU time (on all processors): 00:00:14
+Info (12128): Elaborating entity "vgaControl" for hierarchy "vgaControl:vgaController" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 23
+Warning (10230): Verilog HDL assignment warning at vgaControl.v(45): truncated value with size 32 to match size of target (13) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 45
+Warning (10230): Verilog HDL assignment warning at vgaControl.v(51): truncated value with size 32 to match size of target (13) File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 51
+Info (12128): Elaborating entity "divider" for hierarchy "vgaControl:vgaController|divider:divClk" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 34
+Info (12128): Elaborating entity "bitGen" for hierarchy "bitGen:bitgen" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 33
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "R[1]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "R[2]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "R[3]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "R[4]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "R[5]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "R[6]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "R[7]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "G[1]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "G[2]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "G[3]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "G[4]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "G[5]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "G[6]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "G[7]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "B[1]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "B[2]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "B[3]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "B[4]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "B[5]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "B[6]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "B[7]" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 6
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 8
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 84 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 28 output pins
+    Info (21061): Implemented 54 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 27 warnings
+    Info: Peak virtual memory: 4860 megabytes
+    Info: Processing ended: Wed Sep 25 18:05:57 2024
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:13
 
 

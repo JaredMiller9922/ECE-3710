@@ -1,0 +1,152 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+!s11f vlog 2023.3 2023.07, Jul 17 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 dC:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/simulation/questa
+T_opt
+!s110 1727306632
+VmfLIbK4K7fe7lOKUM^:[D0
+04 6 4 work tb_VGA fast 0
+=1-ec2e98157875-66f49b88-d3-3434
+R1
+!s12b OEM100
+!s124 OEM10U4 
+o-quiet -auto_acc_if_foreign -work work +acc
+Z3 tCvgOpt 0
+n@_opt
+OL;O;2023.3;77
+vbitGen
+2C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/bitGen.v
+Z4 !s110 1727306603
+!i10b 1
+!s100 H:<C98nD8Ol[KWi@;Ul?32
+IIfgeW=Ch8N0ES?6;n2bV10
+R2
+w1727230456
+8C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/bitGen.v
+FC:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/bitGen.v
+!i122 32
+L0 3 7
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2023.3;77
+r1
+!s85 0
+31
+Z7 !s108 1727306603.000000
+!s107 C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/bitGen.v|
+!s90 -reportprogress|300|-work|work|C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/bitGen.v|
+!i113 0
+Z8 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+nbit@gen
+vdivider
+2C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/divider.v
+R4
+!i10b 1
+!s100 BZ9e9nBPCONZcfoQRkFc]3
+I=IXN[_H>hW1eM:OOUQPUV1
+R2
+w1727230394
+8C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/divider.v
+FC:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/divider.v
+!i122 33
+L0 1 19
+R5
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/divider.v|
+!s90 -reportprogress|300|-work|work|C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/divider.v|
+!i113 0
+R8
+R3
+vtb_VGA
+2C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/tb_VGA.v
+Z9 !s110 1727306604
+!i10b 1
+!s100 2L50z;6:JoZj2`ZJCR@8R2
+IHMLib]3]XIk1Baj:D:8OU1
+R2
+w1727306032
+8C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/tb_VGA.v
+FC:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/tb_VGA.v
+!i122 34
+L0 1 39
+R5
+R6
+r1
+!s85 0
+31
+Z10 !s108 1727306604.000000
+!s107 C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/tb_VGA.v|
+!s90 -reportprogress|300|-work|work|C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/tb_VGA.v|
+!i113 0
+R8
+R3
+ntb_@v@g@a
+vVGA
+2C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v
+R9
+!i10b 1
+!s100 JimLb83aYc<=M[UD;a]bh0
+I^D3CY[RBkG0S0FFVSURh:3
+R2
+w1727306037
+8C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v
+FC:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v
+!i122 35
+L0 2 19
+R5
+R6
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v|
+!s90 -reportprogress|300|-work|work|C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v|
+!i113 0
+R8
+R3
+n@v@g@a
+vvgaControl
+2C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v
+R9
+!i10b 1
+!s100 D4oN<R6oPXeE_IA9b2Jb@3
+II>6fS^14A_aEH3nGPN3VJ3
+R2
+w1727306529
+8C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v
+FC:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v
+!i122 36
+L0 1 96
+R5
+R6
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v|
+!s90 -reportprogress|300|-work|work|C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v|
+!i113 0
+R8
+R3
+nvga@control
