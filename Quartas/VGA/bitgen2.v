@@ -25,19 +25,79 @@ always@(*)
 	if (~bright) begin // force black if not bright
 		R = OFF; G = OFF; B = OFF;
 	end
-	else if (state == START) begin
-		R = OFF; G = ON; B = OFF;
-	end
-	else if (state == HAZ) begin
-		R = ON; G = OFF; B = OFF;
-	end
-// check to see if you’re in the box
-	else if (((hCount >= 200) && (hCount <= 250)) && 
+	
+	// L[2] box
+	else if (((hCount >= 160) && (hCount <= 230)) && 
 			  ((vCount >= 150) && (vCount <= 250))) 
 	begin
-		R = ON; G = ON; B = ON; // All three ON makes white
+		if (state == L3 || state == HAZ) begin
+			R = ON; G = ON; B = OFF; // Yellow
+		end
+		else begin
+			R = ON; G = ON; B = ON; // All three ON makes white
+		end
 	end
+	
+	// L[1] box
+	else if (((hCount >= 250) && (hCount <= 320)) && 
+			  ((vCount >= 150) && (vCount <= 250))) 
+	begin
+		if (state == L3 || state == L2 || state == HAZ) begin
+			R = ON; G = ON; B = OFF; // Yellow
+		end
+		else begin
+			R = ON; G = ON; B = ON; // All three ON makes white
+		end
+	end
+	
+	// L[0] box
+	else if (((hCount >= 340) && (hCount <= 410)) && 
+			  ((vCount >= 150) && (vCount <= 250))) 
+	begin
+		if (state == L3 || state == L2 || state == L1 || state == HAZ) begin
+			R = ON; G = ON; B = OFF; // Yellow
+		end
+		else begin
+			R = ON; G = ON; B = ON; // All three ON makes white
+		end
+	end
+	
+	// R[0] box
+	else if (((hCount >= 510) && (hCount <= 580)) && 
+			  ((vCount >= 150) && (vCount <= 250))) 
+	begin
+		if (state == R1 || state == R2 || state == R3 ||state == HAZ) begin
+			R = ON; G = ON; B = OFF; // Yellow
+		end
+		else begin
+			R = ON; G = ON; B = ON; // All three ON makes white
+		end
+	end
+	// R[1] box
+	else if (((hCount >= 600) && (hCount <= 670)) && 
+			  ((vCount >= 150) && (vCount <= 250))) 
+	begin
+		if (state == R2 || state == R3 || state == HAZ) begin
+			R = ON; G = ON; B = OFF; // Yellow
+		end
+		else begin
+			R = ON; G = ON; B = ON; // All three ON makes white
+		end
+	end
+	// R[2] box
+	else if (((hCount >= 690) && (hCount <= 760)) && 
+			  ((vCount >= 150) && (vCount <= 250))) 
+	begin
+		if (state == R3 || state == HAZ) begin
+			R = ON; G = ON; B = OFF; // Yellow
+		end
+		else begin
+			R = ON; G = ON; B = ON; // All three ON makes white
+		end
+	end
+	
+	
 	else begin
-		R = ON; G = OFF; B = OFF; // pure red is the background color
+		R = OFF; G = OFF; B = ON; // pure blue is the background color
 	end
 endmodule
