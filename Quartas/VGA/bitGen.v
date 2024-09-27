@@ -1,5 +1,3 @@
-// Todo: This is just the minimum version. You will most likely use more
-// there may be other inputs to help define what the pixel color is...
 module bitGen (
 	input Rs, Gs, Bs,
 	input bright, // asserted if the pixel is in the bright region

@@ -116,15 +116,51 @@
 					"strict" : false
 				},
 				{
-					"name" : "Rs",
+					"name" : "h_L[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Gs",
+					"name" : "h_L[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Bs",
+					"name" : "h_L[2]",
+					"strict" : false
+				},
+				{
+					"name" : "h_R[0]",
+					"strict" : false
+				},
+				{
+					"name" : "h_R[1]",
+					"strict" : false
+				},
+				{
+					"name" : "h_R[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX[6]",
 					"strict" : false
 				},
 				{
@@ -133,6 +169,18 @@
 				},
 				{
 					"name" : "clk50Mhz",
+					"strict" : false
+				},
+				{
+					"name" : "haz",
+					"strict" : false
+				},
+				{
+					"name" : "left",
+					"strict" : false
+				},
+				{
+					"name" : "right",
 					"strict" : false
 				}
 			]

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VGA
-Thu Sep 26 19:42:36 2024
+Fri Sep 27 09:05:28 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -13,14 +13,20 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Inverted Register Statistics
- 10. Parameter Settings for User Entity Instance: bitGen:bitgen
- 11. Port Connectivity Checks: "bitGen:bitgen"
- 12. Port Connectivity Checks: "vgaControl:vgaController"
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: bitGen2:bitgen
+ 14. Parameter Settings for User Entity Instance: thunderbird:tBird|counter:ctr
+ 15. Port Connectivity Checks: "thunderbird:tBird|counter:ctr"
+ 16. Port Connectivity Checks: "bitGen2:bitgen"
+ 17. Port Connectivity Checks: "vgaControl:vgaController"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+ 21. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -47,14 +53,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Sep 26 19:42:36 2024          ;
+; Analysis & Synthesis Status     ; Successful - Fri Sep 27 09:05:28 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; VGA                                            ;
 ; Top-level Entity Name           ; VGA                                            ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 30                                             ;
-; Total pins                      ; 34                                             ;
+; Total registers                 ; 60                                             ;
+; Total pins                      ; 50                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
 ; Total DSP Blocks                ; 0                                              ;
@@ -171,43 +177,45 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                     ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                       ; Library ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
-; vgaControl.v                     ; yes             ; User Verilog HDL File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v ;         ;
-; divider.v                        ; yes             ; User Verilog HDL File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/divider.v    ;         ;
-; bitGen.v                         ; yes             ; User Verilog HDL File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/bitGen.v     ;         ;
-; VGA.v                            ; yes             ; User Verilog HDL File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v        ;         ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                      ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                        ; Library ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
+; thunderbird.v                    ; yes             ; User Verilog HDL File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/thunderbird.v ;         ;
+; counter.v                        ; yes             ; User Verilog HDL File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/counter.v     ;         ;
+; vgaControl.v                     ; yes             ; User Verilog HDL File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v  ;         ;
+; divider.v                        ; yes             ; User Verilog HDL File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/divider.v     ;         ;
+; VGA.v                            ; yes             ; User Verilog HDL File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v         ;         ;
+; bitgen2.v                        ; yes             ; User Verilog HDL File  ; C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/bitgen2.v     ;         ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                                ;
-+---------------------------------------------+--------------------------------------------------------------+
-; Resource                                    ; Usage                                                        ;
-+---------------------------------------------+--------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 26                                                           ;
-;                                             ;                                                              ;
-; Combinational ALUT usage for logic          ; 47                                                           ;
-;     -- 7 input functions                    ; 0                                                            ;
-;     -- 6 input functions                    ; 4                                                            ;
-;     -- 5 input functions                    ; 4                                                            ;
-;     -- 4 input functions                    ; 3                                                            ;
-;     -- <=3 input functions                  ; 36                                                           ;
-;                                             ;                                                              ;
-; Dedicated logic registers                   ; 30                                                           ;
-;                                             ;                                                              ;
-; I/O pins                                    ; 34                                                           ;
-;                                             ;                                                              ;
-; Total DSP Blocks                            ; 0                                                            ;
-;                                             ;                                                              ;
-; Maximum fan-out node                        ; vgaControl:vgaController|clock_divider_25mhz:clkDiv|clk25Mhz ;
-; Maximum fan-out                             ; 31                                                           ;
-; Total fan-out                               ; 321                                                          ;
-; Average fan-out                             ; 2.21                                                         ;
-+---------------------------------------------+--------------------------------------------------------------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 52          ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 94          ;
+;     -- 7 input functions                    ; 0           ;
+;     -- 6 input functions                    ; 10          ;
+;     -- 5 input functions                    ; 9           ;
+;     -- 4 input functions                    ; 5           ;
+;     -- <=3 input functions                  ; 70          ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 60          ;
+;                                             ;             ;
+; I/O pins                                    ; 50          ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; reset~input ;
+; Maximum fan-out                             ; 34          ;
+; Total fan-out                               ; 585         ;
+; Average fan-out                             ; 2.30        ;
++---------------------------------------------+-------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -215,12 +223,34 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                      ; Entity Name         ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------+---------------------+--------------+
-; |VGA                               ; 47 (0)              ; 30 (0)                    ; 0                 ; 0          ; 34   ; 0            ; |VGA                                                     ; VGA                 ; work         ;
-;    |bitGen:bitgen|                 ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGA|bitGen:bitgen                                       ; bitGen              ; work         ;
-;    |vgaControl:vgaController|      ; 44 (43)             ; 30 (29)                   ; 0                 ; 0          ; 0    ; 0            ; |VGA|vgaControl:vgaController                            ; vgaControl          ; work         ;
+; |VGA                               ; 94 (0)              ; 60 (0)                    ; 0                 ; 0          ; 50   ; 0            ; |VGA                                                     ; VGA                 ; work         ;
+;    |bitGen2:bitgen|                ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGA|bitGen2:bitgen                                      ; bitGen2             ; work         ;
+;    |thunderbird:tBird|             ; 39 (11)             ; 30 (3)                    ; 0                 ; 0          ; 0    ; 0            ; |VGA|thunderbird:tBird                                   ; thunderbird         ; work         ;
+;       |counter:ctr|                ; 28 (28)             ; 27 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |VGA|thunderbird:tBird|counter:ctr                       ; counter             ; work         ;
+;    |vgaControl:vgaController|      ; 45 (44)             ; 30 (29)                   ; 0                 ; 0          ; 0    ; 0            ; |VGA|vgaControl:vgaController                            ; vgaControl          ; work         ;
 ;       |clock_divider_25mhz:clkDiv| ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |VGA|vgaControl:vgaController|clock_divider_25mhz:clkDiv ; clock_divider_25mhz ; work         ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------+
+; Registers Removed During Synthesis                               ;
++---------------------------------------------+--------------------+
+; Register name                               ; Reason for Removal ;
++---------------------------------------------+--------------------+
+; thunderbird:tBird|counter:ctr|count[27..31] ; Lost fanout        ;
+; Total Number of Removed Registers = 5       ;                    ;
++---------------------------------------------+--------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                      ;
++-----------------------------------------+--------------------+-----------------------------------------------------------------------------------+
+; Register name                           ; Reason for Removal ; Registers Removed due to This Register                                            ;
++-----------------------------------------+--------------------+-----------------------------------------------------------------------------------+
+; thunderbird:tBird|counter:ctr|count[31] ; Lost Fanouts       ; thunderbird:tBird|counter:ctr|count[30], thunderbird:tBird|counter:ctr|count[29], ;
+;                                         ;                    ; thunderbird:tBird|counter:ctr|count[28], thunderbird:tBird|counter:ctr|count[27]  ;
++-----------------------------------------+--------------------+-----------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -228,12 +258,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 30    ;
-; Number of registers using Synchronous Clear  ; 26    ;
+; Total registers                              ; 60    ;
+; Number of registers using Synchronous Clear  ; 53    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 30    ;
+; Number of registers using Asynchronous Clear ; 33    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 13    ;
+; Number of registers using Clock Enable       ; 16    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -249,19 +279,49 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 
 
-+------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: bitGen:bitgen ;
-+----------------+----------+--------------------------------+
-; Parameter Name ; Value    ; Type                           ;
-+----------------+----------+--------------------------------+
-; ON             ; 11111111 ; Unsigned Binary                ;
-; OFF            ; 00000000 ; Unsigned Binary                ;
-+----------------+----------+--------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |VGA|thunderbird:tBird|counter:ctr|count[11] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |VGA|bitGen2:bitgen|G[0]                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bitGen2:bitgen ;
++----------------+----------+---------------------------------+
+; Parameter Name ; Value    ; Type                            ;
++----------------+----------+---------------------------------+
+; ON             ; 11111111 ; Unsigned Binary                 ;
+; OFF            ; 00000000 ; Unsigned Binary                 ;
++----------------+----------+---------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: thunderbird:tBird|counter:ctr ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; width          ; 32    ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "thunderbird:tBird|counter:ctr"                                                               ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; count[31..27] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; count[25..0]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "bitGen:bitgen"                                                                                                                                                                      ;
+; Port Connectivity Checks: "bitGen2:bitgen"                                                                                                                                                                     ;
 +--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port   ; Type  ; Severity ; Details                                                                                                                                                                            ;
 +--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -285,25 +345,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 30                          ;
+; arriav_ff             ; 60                          ;
 ;     CLR               ; 4                           ;
 ;     CLR SCLR          ; 13                          ;
+;     ENA CLR           ; 3                           ;
 ;     ENA CLR SCLR      ; 13                          ;
-; arriav_lcell_comb     ; 50                          ;
-;     arith             ; 26                          ;
-;         1 data inputs ; 26                          ;
-;     normal            ; 24                          ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 3                           ;
+;     SCLR              ; 27                          ;
+; arriav_lcell_comb     ; 104                         ;
+;     arith             ; 53                          ;
+;         1 data inputs ; 53                          ;
+;     normal            ; 51                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 9                           ;
 ;         2 data inputs ; 4                           ;
-;         3 data inputs ; 5                           ;
-;         4 data inputs ; 3                           ;
-;         5 data inputs ; 4                           ;
-;         6 data inputs ; 4                           ;
-; boundary_port         ; 34                          ;
+;         3 data inputs ; 12                          ;
+;         4 data inputs ; 5                           ;
+;         5 data inputs ; 9                           ;
+;         6 data inputs ; 10                          ;
+; boundary_port         ; 50                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 1.88                        ;
+; Max LUT depth         ; 3.60                        ;
+; Average LUT depth     ; 2.19                        ;
 +-----------------------+-----------------------------+
 
 
@@ -322,38 +384,59 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Thu Sep 26 19:42:30 2024
+    Info: Processing started: Fri Sep 27 09:05:22 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGA -c VGA
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file thunderbird.v
+    Info (12023): Found entity 1: thunderbird File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/thunderbird.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file counter.v
+    Info (12023): Found entity 1: counter File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/counter.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file vgacontrol.v
     Info (12023): Found entity 1: vgaControl File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file divider.v
     Info (12023): Found entity 1: clock_divider_25mhz File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/divider.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file bitgen.v
-    Info (12023): Found entity 1: bitGen File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/bitGen.v Line: 3
+    Info (12023): Found entity 1: bitGen File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/bitGen.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file vga.v
     Info (12023): Found entity 1: VGA File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file tb_vga.v
     Info (12023): Found entity 1: tb_VGA File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/tb_VGA.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bitgen2.v
+    Info (12023): Found entity 1: bitGen2 File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/bitgen2.v Line: 1
 Info (12127): Elaborating entity "VGA" for the top level hierarchy
-Info (12128): Elaborating entity "vgaControl" for hierarchy "vgaControl:vgaController" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 26
+Info (12128): Elaborating entity "vgaControl" for hierarchy "vgaControl:vgaController" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 31
 Info (12128): Elaborating entity "clock_divider_25mhz" for hierarchy "vgaControl:vgaController|clock_divider_25mhz:clkDiv" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/vgaControl.v Line: 36
-Info (12128): Elaborating entity "bitGen" for hierarchy "bitGen:bitgen" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 39
+Info (12128): Elaborating entity "bitGen2" for hierarchy "bitGen2:bitgen" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 60
+Info (12128): Elaborating entity "thunderbird" for hierarchy "thunderbird:tBird" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 74
+Info (12128): Elaborating entity "counter" for hierarchy "thunderbird:tBird|counter:ctr" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/thunderbird.v Line: 37
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "sync_n" is stuck at GND File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 7
+    Warning (13410): Pin "HEX[0]" is stuck at VCC File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 14
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 5 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/output_files/VGA.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 81 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 29 output pins
-    Info (21061): Implemented 47 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4861 megabytes
-    Info: Processing ended: Thu Sep 26 19:42:36 2024
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "Rs" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 4
+    Warning (15610): No output dependent on input pin "Gs" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 4
+    Warning (15610): No output dependent on input pin "Bs" File: C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/VGA.v Line: 4
+Info (21057): Implemented 144 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 8 input pins
+    Info (21059): Implemented 42 output pins
+    Info (21061): Implemented 94 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 4868 megabytes
+    Info: Processing ended: Fri Sep 27 09:05:28 2024
     Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Total CPU time (on all processors): 00:00:09
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/jared/Desktop/Fall 2024/ECE-3710/Quartas/VGA/output_files/VGA.map.smsg.
 
 
